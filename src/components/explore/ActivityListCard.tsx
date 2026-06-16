@@ -1,14 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { HeartIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import { HeartIcon as HeartIconSolid, StarIcon } from "@heroicons/react/24/solid";
+import { MapPinIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 import type { Activity } from "@/types/activity";
+import { WishlistButton } from "@/components/shared/WishlistButton";
 
 export function ActivityListCard({ activity }: { activity: Activity }) {
-  const [liked, setLiked] = useState(false);
   const detailHref = `/activities/${activity.id}`;
   const bookingHref = `/booking/${activity.id}`;
 
@@ -18,14 +15,10 @@ export function ActivityListCard({ activity }: { activity: Activity }) {
 
       <div className="relative h-48 w-full bg-surface-variant overflow-hidden pointer-events-none">
         <Image fill className="object-cover" alt={activity.imageAlt} src={activity.imageUrl} sizes="100vw" />
-        <button
-          type="button"
-          aria-label="찜하기"
-          onClick={() => setLiked((v) => !v)}
+        <WishlistButton
+          activityId={activity.id}
           className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-surface/30 backdrop-blur-md flex items-center justify-center text-on-primary hover:text-coral transition-colors pointer-events-auto"
-        >
-          {liked ? <HeartIconSolid className="size-5 text-coral" /> : <HeartIcon className="size-5" />}
-        </button>
+        />
         <div className="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/40 backdrop-blur-md text-on-primary text-label-md">
           <StarIcon className="size-3.5" />
           {activity.rating}

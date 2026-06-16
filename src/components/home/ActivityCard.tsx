@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeartIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import type { Activity } from "@/types/activity";
+import { WishlistButton } from "@/components/shared/WishlistButton";
 
 export function ActivityCard({ activity }: { activity: Activity }) {
   const href = `/activities/${activity.id}`;
@@ -20,13 +21,11 @@ export function ActivityCard({ activity }: { activity: Activity }) {
           src={activity.imageUrl}
           sizes="288px"
         />
-        <button
-          type="button"
-          aria-label="찜하기"
+        <WishlistButton
+          activityId={activity.id}
           className="absolute top-sm right-sm w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-outline hover:text-coral transition-colors shadow-sm pointer-events-auto"
-        >
-          <HeartIcon className="size-4.5" />
-        </button>
+          iconClassName="size-4.5"
+        />
       </div>
       <div className="p-md flex flex-col flex-grow bg-surface pointer-events-none">
         <div className="flex justify-between items-start mb-xs">

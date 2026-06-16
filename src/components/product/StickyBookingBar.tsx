@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
+import { useWishlist } from "@/hooks/useWishlist";
 
 export function StickyBookingBar({
   productId,
@@ -14,7 +14,8 @@ export function StickyBookingBar({
   pricePerPerson: number;
   currency: string;
 }) {
-  const [saved, setSaved] = useState(false);
+  const { isLiked, toggle } = useWishlist();
+  const saved = isLiked(productId);
 
   return (
     <div className="fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0px_-8px_24px_rgba(0,0,0,0.05)] pb-safe pt-sm px-container-margin md:max-w-3xl md:left-1/2 md:-translate-x-1/2 md:rounded-t-[24px] md:border-x">
@@ -22,8 +23,8 @@ export function StickyBookingBar({
         <div className="flex items-center gap-4">
           <button
             type="button"
-            aria-label="찜하기"
-            onClick={() => setSaved((v) => !v)}
+            aria-label={saved ? "찜 해제" : "찜하기"}
+            onClick={() => toggle(productId)}
             className={`w-12 h-12 flex items-center justify-center rounded-full border transition-all active:scale-95 ${
               saved
                 ? "border-coral bg-coral/5 text-coral"
