@@ -1,0 +1,41 @@
+// TODO: Supabase 연동 시 getBookingProduct(id) + 실시간 잔여석 쿼리로 교체
+import type { BookingProduct } from "@/types/booking";
+
+export const BOOKING_PRODUCT: BookingProduct = {
+  id: "activity-1",
+  imageUrl:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuBT3qfis-LNR5qMUk6hJg9AQ-pzHJInCNXBhxlUcXKU45euyIBxuak8HfMUd-1J6OsuOkdl37HKvXWpoSkK_aZ9V9Tk0sObOZx_F-Km_lB5q1BPNfA_oX5wuGMictiud1OZhGW16T2__F0DoH5fWV87ECRID-5rvuPsSyfOfQaO-k9U9SqRrYdfLMZWy6YZfW5KcYDOsQqg1ZBu4lnWCRbWew_LC_1Y8XJbsaVgdEGGyWbygMO4fHUm9Cl7jSlzW5u3rpbEWtVXE4U0",
+  imageAlt: "맑은 바다 위의 스쿠버 다이빙 보트",
+  categoryLabel: "스쿠버 다이빙",
+  title: "오픈워터 자격증 코스",
+  dateRangeLabel: "2023년 10월 15일 - 10월 18일",
+  location: "제주도, 대한민국",
+  monthLabel: "2023년 10월",
+  defaultSelectedDay: 15,
+  calendarDays: [
+    { day: 1, status: "past" },
+    { day: 2, status: "past" },
+    { day: 3, status: "past" },
+    { day: 4, status: "past" },
+    { day: 5, status: "past" },
+    { day: 6, status: "past" },
+    { day: 7, status: "past" },
+    { day: 8, status: "available", remaining: 5 },
+    { day: 9, status: "available", remaining: 2 },
+    { day: 10, status: "soldout" },
+    { day: 11, status: "available", remaining: 8 },
+    { day: 12, status: "available", remaining: 4 },
+    { day: 13, status: "available", remaining: 6 },
+    { day: 14, status: "available", remaining: 3 },
+    { day: 15, status: "available", remaining: 5 },
+    { day: 16, status: "available", remaining: 5 },
+    { day: 17, status: "available", remaining: 5 },
+    { day: 18, status: "available", remaining: 5 },
+    { day: 19, status: "available", remaining: 5 },
+    { day: 20, status: "available", remaining: 5 },
+    { day: 21, status: "available", remaining: 5 },
+  ],
+  adultPrice: 425000,
+  childPrice: 0,
+  currencySymbol: "₩",
+};

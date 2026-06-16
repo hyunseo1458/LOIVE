@@ -38,7 +38,11 @@ export default function ActivityDetailPage() {
         <div className="h-10" />
       </section>
 
-      <StickyBookingBar pricePerPerson={product.pricePerPerson} currency={product.currency} />
+      <StickyBookingBar
+        productId={product.id}
+        pricePerPerson={product.pricePerPerson}
+        currency={product.currency}
+      />
     </main>
   );
 }

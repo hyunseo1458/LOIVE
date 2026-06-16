@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 
 export function StickyBookingBar({
+  productId,
   pricePerPerson,
   currency,
 }: {
+  productId: string;
   pricePerPerson: number;
   currency: string;
 }) {
@@ -37,13 +40,12 @@ export function StickyBookingBar({
             </p>
           </div>
         </div>
-        {/* TODO: 예약 및 결제 화면 포팅 후 해당 라우트로 연결 */}
-        <button
-          type="button"
+        <Link
+          href={`/booking/${productId}`}
           className="flex-1 bg-coral text-on-error text-title-lg py-3 px-6 rounded-2xl shadow-sm hover:opacity-90 active:scale-95 transition-all text-center"
         >
           예약하기
-        </button>
+        </Link>
       </div>
     </div>
   );
