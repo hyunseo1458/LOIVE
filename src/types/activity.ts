@@ -19,6 +19,7 @@ export type Activity = {
   category?: string;
   priceUnitLabel?: string;
   priceFrom?: boolean;
+  region?: RegionCode;
 };
 
 export type CourseTag = {

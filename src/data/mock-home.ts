@@ -48,6 +48,7 @@ export const POPULAR_ACTIVITIES: Activity[] = [
     category: "해양",
     priceUnitLabel: "1인 기준",
     priceFrom: true,
+    region: "제주",
   },
   {
     id: "activity-2",
@@ -61,6 +62,7 @@ export const POPULAR_ACTIVITIES: Activity[] = [
     priceLabel: "₩60,000",
     category: "해양",
     priceUnitLabel: "1인 기준 (2시간)",
+    region: "제주",
   },
   {
     id: "activity-3",
@@ -74,6 +76,7 @@ export const POPULAR_ACTIVITIES: Activity[] = [
     priceLabel: "₩80,000",
     category: "해양",
     priceUnitLabel: "1인 기준 (장비 포함)",
+    region: "제주",
   },
 ];
 

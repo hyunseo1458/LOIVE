@@ -1,13 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { REGIONS } from "@/data/mock-home";
 import type { RegionCode } from "@/types/activity";
 
 export function TopAppBar() {
+  const router = useRouter();
   const [region, setRegion] = useState<RegionCode>("제주");
   const [open, setOpen] = useState(false);
+
+  const selectRegion = (next: RegionCode) => {
+    setRegion(next);
+    setOpen(false);
+    router.push(`/explore?region=${encodeURIComponent(next)}`);
+  };
 
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
@@ -31,14 +39,9 @@ export function TopAppBar() {
                   <button
                     key={r}
                     type="button"
-                    onClick={() => {
-                      setRegion(r);
-                      setOpen(false);
-                    }}
+                    onClick={() => selectRegion(r)}
                     className={`px-3 py-2 text-left text-body-md rounded-lg ${
-                      r === region
-                        ? "bg-ocean-blue/10 text-ocean-blue"
-                        : "hover:bg-ocean-blue/10"
+                      r === region ? "bg-ocean-blue/10 text-ocean-blue" : "hover:bg-ocean-blue/10"
                     }`}
                   >
                     {r}
