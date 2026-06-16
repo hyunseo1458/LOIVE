@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { BookingProduct, PaymentMethod } from "@/types/booking";
+import { generateReservationCode } from "@/lib/reservation-code";
 import { BookingHeader } from "./BookingHeader";
 import { ProductSummaryCard } from "./ProductSummaryCard";
 import { DateSelectionCalendar } from "./DateSelectionCalendar";
@@ -12,6 +14,7 @@ import { TermsAgreement } from "./TermsAgreement";
 import { StickyPaymentBar } from "./StickyPaymentBar";
 
 export function BookingForm({ product }: { product: BookingProduct }) {
+  const router = useRouter();
   const [selectedDay, setSelectedDay] = useState<number | null>(product.defaultSelectedDay);
   const [adultCount, setAdultCount] = useState(2);
   const [childCount, setChildCount] = useState(0);
@@ -57,7 +60,17 @@ export function BookingForm({ product }: { product: BookingProduct }) {
         childCount={childCount}
         disabled={!canSubmit}
         onSubmit={() => {
-          // TODO: 결제 완료 화면 포팅 + PG 연동 후 실제 제출 로직으로 교체
+          if (!canSubmit || selectedDay === null || paymentMethod === null) return;
+          // TODO: 실제 PG(카카오페이/토스페이) 연동 전까지는 결제 완료 화면으로 바로 이동
+          const params = new URLSearchParams({
+            amount: String(totalPrice),
+            method: paymentMethod,
+            day: String(selectedDay),
+            adults: String(adultCount),
+            children: String(childCount),
+            code: generateReservationCode(product.monthLabel, selectedDay),
+          });
+          router.push(`/booking/${product.id}/complete?${params.toString()}`);
         }}
       />
     </div>
