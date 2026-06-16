@@ -32,6 +32,47 @@ export type Course = {
   tags: CourseTag["icon"][];
 };
 
+export type ItineraryStep = {
+  step: number;
+  title: string;
+  description: string;
+};
+
+export type FeatureHighlight = {
+  icon: "safety" | "gear";
+  title: string;
+  description: string;
+};
+
+export type Review = {
+  id: string;
+  authorInitial: string;
+  authorName: string;
+  date: string;
+  rating: number;
+  comment: string;
+};
+
+export type ProductDetail = {
+  id: string;
+  heroImageUrl: string;
+  heroImageAlt: string;
+  galleryImages: { url: string; alt: string }[];
+  tags: string[];
+  title: string;
+  rating: number;
+  reviewCount: number;
+  location: string;
+  introTitle: string;
+  introDescription: string;
+  features: FeatureHighlight[];
+  itinerary: ItineraryStep[];
+  safetyBadges: string[];
+  reviews: Review[];
+  pricePerPerson: number;
+  currency: string;
+};
+
 export type RegionCode =
   | "서울"
   | "경기"
