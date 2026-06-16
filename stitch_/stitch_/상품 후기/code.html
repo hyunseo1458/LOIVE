@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LOIVE - 상품 후기</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E0E7FF;
+            border-radius: 10px;
+        }
+        .active-pill {
+            box-shadow: 0px 4px 12px rgba(0, 122, 255, 0.15);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb595",
+                        "outline": "#717786",
+                        "on-secondary-fixed": "#380c00",
+                        "on-primary-fixed": "#001a41",
+                        "background": "#f9f9ff",
+                        "secondary-fixed": "#ffdbcf",
+                        "primary-container": "#0070eb",
+                        "on-surface-variant": "#414755",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary-fixed-variant": "#004493",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#6b1f00",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary": "#9e3d00",
+                        "on-background": "#181c23",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#822800",
+                        "secondary-container": "#fe7e4f",
+                        "error-red": "#FF3B30",
+                        "deep-teal": "#005F6B",
+                        "tertiary-container": "#c64f00",
+                        "surface-container": "#ecedf9",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "coral": "#FF7F50",
+                        "inverse-on-surface": "#eef0fc",
+                        "surface-tint": "#005bc1",
+                        "sun-yellow": "#FFD700",
+                        "surface-variant": "#e0e2ed",
+                        "surface-container-highest": "#e0e2ed",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2d3039",
+                        "primary-fixed": "#d8e2ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f1f3fe",
+                        "surface-dim": "#d8d9e5",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "surface": "#f9f9ff",
+                        "on-surface": "#181c23",
+                        "on-secondary": "#ffffff",
+                        "ocean-blue": "#007AFF",
+                        "outline-variant": "#c1c6d7",
+                        "success-green": "#34C759",
+                        "secondary-fixed-dim": "#ffb59c",
+                        "inverse-primary": "#adc6ff",
+                        "primary": "#0058bc",
+                        "secondary": "#a43c12",
+                        "surface-container-high": "#e6e8f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-margin": "20px",
+                        "sm": "12px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "price-display": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "price-display": ["22px", {"lineHeight": "28px", "fontWeight": "800"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-ocean-blue/20">
+<!-- Header (TopAppBar) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm h-16">
+<div class="flex justify-between items-center px-container-margin h-full w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-ocean-blue">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-ocean-blue">상품 후기</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-ocean-blue">account_circle</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 max-w-2xl mx-auto px-container-margin">
+<!-- Product Context -->
+<div class="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
+<h2 class="font-title-lg text-title-lg mb-2">프리미엄 오션 요트 투어</h2>
+<p class="text-on-surface-variant text-body-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+            제주도 서귀포시
+        </p>
+</div>
+<!-- Rating Summary -->
+<section class="bg-surface-container-lowest rounded-[20px] p-6 mb-8 border border-outline-variant/20 shadow-[0px_4px_12px_rgba(0,122,255,0.08)]">
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-center text-center">
+<span class="text-[48px] font-extrabold text-ocean-blue leading-tight">4.9</span>
+<div class="flex gap-0.5 my-1">
+<span class="material-symbols-outlined text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-label-md font-label-md text-outline">총 128개의 리뷰</span>
+</div>
+<div class="flex-1 space-y-2">
+<!-- Rating Bars -->
+<div class="flex items-center gap-3">
+<span class="text-label-md font-label-md w-4">5</span>
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-ocean-blue w-[92%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-md font-label-md w-4">4</span>
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-ocean-blue w-[6%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-md font-label-md w-4">3</span>
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-ocean-blue w-[2%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-3 text-outline">
+<span class="text-label-md font-label-md w-4">2</span>
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-ocean-blue w-[0%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-3 text-outline">
+<span class="text-label-md font-label-md w-4">1</span>
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-ocean-blue w-[0%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Chips -->
+<div class="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
+<button class="px-5 py-2.5 rounded-full bg-ocean-blue text-white font-label-md text-label-md active-pill whitespace-nowrap">전체</button>
+<button class="px-5 py-2.5 rounded-full bg-ocean-blue/10 text-ocean-blue font-label-md text-label-md hover:bg-ocean-blue/20 transition-colors whitespace-nowrap">사진 리뷰</button>
+<button class="px-5 py-2.5 rounded-full bg-ocean-blue/10 text-ocean-blue font-label-md text-label-md hover:bg-ocean-blue/20 transition-colors whitespace-nowrap">높은 평점</button>
+<button class="px-5 py-2.5 rounded-full bg-ocean-blue/10 text-ocean-blue font-label-md text-label-md hover:bg-ocean-blue/20 transition-colors whitespace-nowrap">낮은 평점</button>
+</div>
+<!-- Reviews List -->
+<div class="space-y-6">
+<!-- Review Card 1 -->
+<article class="bg-white p-6 rounded-[20px] border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-ocean-blue">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] leading-tight">김바다</h4>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<time class="text-label-md font-label-md text-outline">2024.05.20</time>
+</div>
+<p class="text-body-md text-on-surface mb-4 leading-relaxed">
+                정말 환상적인 경험이었어요! 요트가 깨끗하고 가이드분들도 친절하셨습니다. 일몰 때 맞춰서 갔는데 인생샷 여러 개 건졌네요. 특히 샴페인 서비스가 너무 만족스러웠습니다. 제주도 오면 꼭 다시 이용하고 싶어요.
+            </p>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-variant">
+<img alt="Yacht review image" class="w-full h-full object-cover" data-alt="A luxurious white sailing yacht gliding through deep sapphire blue ocean waters under a brilliant, sun-drenched sky. The image has a clean, high-key, modern aesthetic with soft reflections on the water, perfectly aligning with the Pristine Vitality and Ocean Blue brand theme. High-resolution digital photography showing tranquility and luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW1MXpykY9N7MKRk-k4_2q2UXNKSSLHZMYOiAp-c_et20GBLUlkIEkBZKnOcILQI6WJgNeIQfiLDfGGRIkK9lFBdzbuOZWFl8vpfOc-D4Xdq0h1SJMDUAFUD5NEtSi9miePv6Gf9aNx4d22V-0RmrWhL_Ex5r6nmLOknGDfVY3-RSnHFXz5eCsgQsFioXDK0yzvF1FH8I3-ynAhyV9eqYncNPL21olYYL2t74n1xXyBLKpbDO5GR_YNqnZdVMxUXwtIRHL9DA0FC-Q"/>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-variant">
+<img alt="Sunset review image" class="w-full h-full object-cover" data-alt="A breathtaking golden hour sunset over a calm ocean horizon viewed from the wooden deck of a modern yacht. The sky is filled with soft coral and warm yellow hues, casting a serene and rejuvenating glow across the water. The mood is peaceful and adventurous, utilizing the brand's bright and airy visual principles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAinUhGEqP9iNXJFU_fOwv5WiCZkoT2BPnwDCtFAwLxpKjJKNDhjmnQueu4C5lShvqei5k3JHdqLXg2gLK-BrP9bUY2G5mCGQ1hBA6cCl8mpdpYIS2l0KBgB6fqEE_tUccOXthJj5ElCBqLB8ASlDYToflN6cOaZG-TVLL8Qbe22Nefy5rAsM3b7w6Cjx3FUo0mEUPTvtsF8vC5XKSX8BduYk6hj74GzFo-749g9V0m1ZqPHS64ThMhShhtYb6vL3MyhgMRwJj4etSr"/>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-variant relative">
+<img alt="Interior review image" class="w-full h-full object-cover" data-alt="The sophisticated and minimalist interior cabin of a luxury yacht with large panoramic windows looking out onto a clear turquoise ocean. The decor is bright and pristine, featuring white leather seating and polished wood accents. Soft, natural daylight floods the space, creating a sense of clarity and reliability in a professional travel setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxz_mBrZ9hN_CEE7bs_8nasNc_-LlKjp9Neuu9hvfbnRSTjpD0ndXTV7mi_lcRUf95gmR0QWB8QjdYDmcblfhnEpgnHneyOQ2qzWTcdu0eRLE503mqjS8NZ5P3Gk7Qo0VHCNG-QJCwxop6IlkvzOoBlfZzPIQWGMOj4IYpOzG6QSqm9klrLGoAaL4gLWizUvVQYB0dsEK-vsj2ItsGxwI0NUb5bPdwj9fyXYqTy0XfouPtVZUFf5CIg5tTkSwX1Pyfbl_xl9IE_oP6"/>
+</div>
+</div>
+</article>
+<!-- Review Card 2 -->
+<article class="bg-white p-6 rounded-[20px] border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-ocean-blue">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] leading-tight">이진호</h4>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-outline-variant" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<time class="text-label-md font-label-md text-outline">2024.05.15</time>
+</div>
+<p class="text-body-md text-on-surface leading-relaxed">
+                가족들과 함께 했는데 아이들이 너무 좋아했어요. 바다 한가운데서 낚시도 해보고 잊지 못할 추억 만들었습니다. 다만 요트 내 에어컨이 조금 약했던 것 같아요. 그래도 전반적으로 훌륭했습니다!
+            </p>
+</article>
+<!-- Review Card 3 -->
+<article class="bg-white p-6 rounded-[20px] border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-ocean-blue">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] leading-tight">박서연</h4>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-sun-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<time class="text-label-md font-label-md text-outline">2024.05.12</time>
+</div>
+<p class="text-body-md text-on-surface mb-4 leading-relaxed">
+                혼자 여행와서 예약했는데 전혀 어색하지 않게 잘 챙겨주셨어요. 블루투스 스피커로 노래 틀어주시는 선곡 센스가 대박입니다. 힐링 제대로 하고 갑니다!
+            </p>
+<div class="flex gap-2 overflow-x-auto no-scrollbar">
+<div class="w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-surface-variant">
+<img alt="Review accessory image" class="w-full h-full object-cover" data-alt="A close-up shot of a refreshing tropical cocktail garnished with mint and a slice of coral orange citrus, sitting on a glossy white table on a boat. In the background, the soft bokeh of the bright blue ocean and white yacht railings creates a clean, premium atmosphere. The lighting is crisp and airy, emphasizing the Vitality brand concept." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKc_3JhsTonSSqoHSd6-RziQmDgt7UGL7OVxeUAoiy8TOtxu5HZWcwxlGMDcYIZHncoLZi8tuW0x54FM5-YiJyru_Bz-onE7l4cQjY_wH2MVgWZc2bFsP8ZxMKuVrXhxjkVOKIx9bHWIgn1-mf1Qo-LK-rtB_AXm3I6bxW286K7_YwVTelriltlFIraZL2ngDp5UQgJx9r_Mj7f0esmYfUx3jpae4RyqYd1TNl9e0Ac58kS87-4qQ4-F4UfWc8Hwns6PtwPRiXSmAP"/>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Navigation Shell (BottomNavBar) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0px_-8px_24px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center h-20 pb-safe px-4 w-full max-w-7xl mx-auto">
+<button class="flex flex-col items-center justify-center text-outline hover:text-ocean-blue transition-colors">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md mt-1">탐색</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline hover:text-ocean-blue transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">예약</span>
+</button>
+<button class="flex flex-col items-center justify-center text-ocean-blue relative after:content-[''] after:w-1 after:h-1 after:bg-ocean-blue after:rounded-full after:mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<span class="font-label-md text-label-md mt-1">후기</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline hover:text-ocean-blue transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md mt-1">찜</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline hover:text-ocean-blue transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">마이</span>
+</button>
+</div>
+</nav>
+<script>
+    // Simple Interaction for Filter Chips
+    const chips = document.querySelectorAll('.flex.gap-2.mb-8 button');
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chips.forEach(c => {
+                c.classList.remove('bg-ocean-blue', 'text-white', 'active-pill');
+                c.classList.add('bg-ocean-blue/10', 'text-ocean-blue');
+            });
+            chip.classList.add('bg-ocean-blue', 'text-white', 'active-pill');
+            chip.classList.remove('bg-ocean-blue/10', 'text-ocean-blue');
+        });
+    });
+</script>
+</body></html>

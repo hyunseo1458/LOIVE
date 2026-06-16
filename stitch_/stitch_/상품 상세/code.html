@@ -1,0 +1,351 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TIDE - 상품 상세</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "sun-yellow": "#FFD700",
+                        "primary-container": "#0070eb",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "primary": "#0058bc",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary-fixed-variant": "#004493",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb59c",
+                        "outline-variant": "#c1c6d7",
+                        "surface-tint": "#005bc1",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-high": "#e6e8f3",
+                        "deep-teal": "#005F6B",
+                        "surface-bright": "#f9f9ff",
+                        "surface-container-highest": "#e0e2ed",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-fixed": "#001a41",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "background": "#f9f9ff",
+                        "primary-fixed": "#d8e2ff",
+                        "inverse-surface": "#2d3039",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#6b1f00",
+                        "on-primary-container": "#fefcff",
+                        "tertiary-container": "#c64f00",
+                        "on-secondary-fixed": "#380c00",
+                        "coral": "#FF7F50",
+                        "secondary-container": "#fe7e4f",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#717786",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#822800",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#9e3d00",
+                        "on-surface": "#181c23",
+                        "on-background": "#181c23",
+                        "surface-container": "#ecedf9",
+                        "secondary": "#a43c12",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8d9e5",
+                        "success-green": "#34C759",
+                        "on-surface-variant": "#414755",
+                        "surface-variant": "#e0e2ed",
+                        "secondary-fixed": "#ffdbcf",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-low": "#f1f3fe",
+                        "inverse-on-surface": "#eef0fc",
+                        "on-primary": "#ffffff",
+                        "ocean-blue": "#007AFF",
+                        "error-red": "#FF3B30"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        "2xl": "1.25rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        md: "16px",
+                        lg: "24px",
+                        "container-margin": "20px",
+                        xs: "8px",
+                        base: "4px",
+                        xl: "32px",
+                        sm: "12px",
+                        gutter: "12px"
+                    },
+                    fontFamily: {
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "price-display": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "title-lg": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "price-display": ["22px", { lineHeight: "28px", fontWeight: "800" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }]
+                    },
+                    boxShadow: {
+                        'float': '0px 4px 12px rgba(0, 122, 255, 0.08)',
+                        'nav': '0px -8px 24px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+<style data-stitch-css-vh="
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  ">
+    body {
+      min-height: max(884px, 884px);
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-0{bottom:0px}.bottom-10{bottom:2.5rem}.left-0{left:0px}.left-1\/2{left:50%}.top-0{top:0px}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.-mx-container-margin{margin-left:-20px;margin-right:-20px}.mx-auto{margin-left:auto;margin-right:auto}.-mt-8{margin-top:-2rem}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-lg{margin-bottom:24px}.mb-md{margin-bottom:16px}.mb-sm{margin-bottom:12px}.mb-xl{margin-bottom:32px}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-2{height:0.5rem}.h-64{height:16rem}.h-\[397px\]{height:397px}.h-full{height:100%}.min-h-\[884px\]{min-height:884px}.w-1{width:0.25rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-2{width:0.5rem}.w-\[280px\]{width:280px}.w-full{width:100%}.max-w-3xl{max-width:48rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1.25rem}.rounded-\[16px\]{border-radius:16px}.rounded-full{border-radius:9999px}.rounded-t-\[32px\]{border-top-left-radius:32px;border-top-right-radius:32px}.border{border-width:1px}.border-t{border-top-width:1px}.border-ocean-blue{--tw-border-opacity:1;border-color:rgb(0 122 255 / var(--tw-border-opacity, 1))}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(193 198 215 / var(--tw-border-opacity, 1))}.border-outline-variant\/30{border-color:rgb(193 198 215 / 0.3)}.border-surface-variant{--tw-border-opacity:1;border-color:rgb(224 226 237 / var(--tw-border-opacity, 1))}.bg-coral{--tw-bg-opacity:1;background-color:rgb(255 127 80 / var(--tw-bg-opacity, 1))}.bg-ocean-blue\/10{background-color:rgb(0 122 255 / 0.1)}.bg-outline-variant{--tw-bg-opacity:1;background-color:rgb(193 198 215 / var(--tw-bg-opacity, 1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(216 226 255 / var(--tw-bg-opacity, 1))}.bg-primary-fixed\/50{background-color:rgb(216 226 255 / 0.5)}.bg-secondary-container{--tw-bg-opacity:1;background-color:rgb(254 126 79 / var(--tw-bg-opacity, 1))}.bg-success-green\/10{background-color:rgb(52 199 89 / 0.1)}.bg-surface{--tw-bg-opacity:1;background-color:rgb(249 249 255 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(230 232 243 / var(--tw-bg-opacity, 1))}.bg-surface-container-highest{--tw-bg-opacity:1;background-color:rgb(224 226 237 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(241 243 254 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-surface-variant{--tw-bg-opacity:1;background-color:rgb(224 226 237 / var(--tw-bg-opacity, 1))}.bg-surface\/80{background-color:rgb(249 249 255 / 0.8)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.from-black\/20{--tw-gradient-from:rgb(0 0 0 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.object-center{object-position:center}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-container-margin{padding:20px}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-container-margin{padding-left:20px;padding-right:20px}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-1{padding-bottom:0.25rem}.pb-32{padding-bottom:8rem}.pt-12{padding-top:3rem}.pt-8{padding-top:2rem}.pt-sm{padding-top:12px}.text-center{text-align:center}.font-body-lg{font-family:Plus Jakarta Sans}.font-body-md{font-family:Plus Jakarta Sans}.font-headline-lg-mobile{font-family:Plus Jakarta Sans}.font-label-md{font-family:Hanken Grotesk}.font-price-display{font-family:Plus Jakarta Sans}.font-title-lg{font-family:Plus Jakarta Sans}.text-base{font-size:1rem;line-height:1.5rem}.text-body-lg{font-size:16px;line-height:24px;font-weight:400}.text-body-md{font-size:14px;line-height:20px;font-weight:400}.text-headline-lg-mobile{font-size:28px;line-height:36px;font-weight:700}.text-label-md{font-size:12px;line-height:16px;letter-spacing:0.05em;font-weight:600}.text-price-display{font-size:22px;line-height:28px;font-weight:800}.text-title-lg{font-size:20px;line-height:28px;font-weight:600}.font-normal{font-weight:400}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:0.05em}.text-coral{--tw-text-opacity:1;color:rgb(255 127 80 / var(--tw-text-opacity, 1))}.text-ocean-blue{--tw-text-opacity:1;color:rgb(0 122 255 / var(--tw-text-opacity, 1))}.text-on-primary-fixed-variant{--tw-text-opacity:1;color:rgb(0 68 147 / var(--tw-text-opacity, 1))}.text-on-secondary-container{--tw-text-opacity:1;color:rgb(107 31 0 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(24 28 35 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(65 71 85 / var(--tw-text-opacity, 1))}.text-outline{--tw-text-opacity:1;color:rgb(113 119 134 / var(--tw-text-opacity, 1))}.text-outline-variant{--tw-text-opacity:1;color:rgb(193 198 215 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(0 88 188 / var(--tw-text-opacity, 1))}.text-success-green{--tw-text-opacity:1;color:rgb(52 199 89 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-nav{--tw-shadow:0px -8px 24px rgba(0, 0, 0, 0.05);--tw-shadow-colored:0px -8px 24px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-primary-fixed *::selection{--tw-bg-opacity:1;background-color:rgb(216 226 255 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-fixed *::selection{--tw-text-opacity:1;color:rgb(0 26 65 / var(--tw-text-opacity, 1))}.selection\:bg-primary-fixed::selection{--tw-bg-opacity:1;background-color:rgb(216 226 255 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-fixed::selection{--tw-text-opacity:1;color:rgb(0 26 65 / var(--tw-text-opacity, 1))}.hover\:scale-95:hover{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-coral:hover{--tw-border-opacity:1;border-color:rgb(255 127 80 / var(--tw-border-opacity, 1))}.hover\:bg-coral\/5:hover{background-color:rgb(255 127 80 / 0.05)}.hover\:bg-surface-variant:hover{--tw-bg-opacity:1;background-color:rgb(224 226 237 / var(--tw-bg-opacity, 1))}.hover\:text-coral:hover{--tw-text-opacity:1;color:rgb(255 127 80 / var(--tw-text-opacity, 1))}.hover\:text-ocean-blue:hover{--tw-text-opacity:1;color:rgb(0 122 255 / var(--tw-text-opacity, 1))}.hover\:opacity-90:hover{opacity:0.9}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 768px){.md\:left-1\/2{left:50%}.md\:h-\[486px\]{height:486px}.md\:max-w-3xl{max-width:48rem}.md\:-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.md\:rounded-t-\[24px\]{border-top-left-radius:24px;border-top-right-radius:24px}.md\:border-x{border-left-width:1px;border-right-width:1px}.md\:font-headline-lg{font-family:Plus Jakarta Sans}.md\:text-headline-lg{font-size:32px;line-height:40px;letter-spacing:-0.01em;font-weight:700}}</style></head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed" data-mode="connect">
+<!-- Suppressed Navigation Shells: This is a detail screen (focused journey), so TopAppBar and BottomNavBar are intentionally omitted to prioritize the content canvas. -->
+<main class="w-full max-w-3xl mx-auto relative min-h-[884px] bg-surface" data-stitch-vh="min-h-[884px]===min-h-screen">
+<!-- Hero Image Carousel Section -->
+<section class="relative w-full h-[397px] md:h-[486px] bg-surface-variant overflow-hidden">
+<img alt="A breathtaking, high-resolution view of a crystal clear ocean bay from a pristine modern villa. The water is a vibrant, translucent turquoise, embodying the 'Pristine Vitality' aesthetic. Soft, natural sunlight illuminates a sleek, minimalist wooden paddleboard resting on white sand. The mood is serene, inviting, and premium." class="w-full h-full object-cover object-center" data-alt="A breathtaking, high-resolution view of a crystal clear ocean bay from a pristine modern villa. The water is a vibrant, translucent turquoise, embodying the 'Pristine Vitality' aesthetic. Soft, natural sunlight illuminates a sleek, minimalist wooden paddleboard resting on white sand. The mood is serene, inviting, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcmi_2fOzuArWlEaamvUtKE0nFBfPpS6xrCYa_M4XlO8usJ8A99kQe1AgiRhlVFbKiHBZ4hhvfm0SSptVABrzC_gBuV4K8XDD65AjUjxd4IsqzRnIb0fMmajMVCnbewVr-s27TEatg8W6WSl2J1M9fnPX81I4Jhr3RgbAuEWc6ieDfa1NlwZMknbNZc-tDlncANOhdkH3qM9GUEsVy6TXE9LSUcjfKPzchdCJESiiH7__bmdgDyzFXCtmMMYrr6oXP9wObKBvCtG3D">
+<!-- Gradient Overlay for legibility -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent"></div>
+<!-- Top Actions Overlay -->
+<div class="absolute top-0 left-0 w-full p-container-margin pt-12 flex justify-between items-center z-20">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-xl flex items-center justify-center text-ocean-blue shadow-sm hover:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<button aria-label="Share" class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-xl flex items-center justify-center text-ocean-blue shadow-sm hover:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">ios_share</span>
+</button>
+</div>
+<!-- Carousel Dots -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+<div class="w-2 h-2 rounded-full bg-white shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></div>
+</div>
+</section>
+<!-- Content Canvas -->
+<section class="relative z-30 bg-surface rounded-t-[32px] -mt-8 px-container-margin pt-8 pb-32">
+<!-- Header Info -->
+<div class="mb-lg">
+<div class="flex gap-2 mb-sm flex-wrap">
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant px-3 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider">수상 스포츠</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-md text-label-md">초보자 환영</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-2 leading-tight">크리스탈 코브 가이드 패들보드 투어</h1>
+<div class="flex items-center gap-4 text-outline font-body-md text-body-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 18px;">star</span>
+<span class="font-title-lg text-title-lg text-on-surface">4.9</span>
+<span class="">(128개 리뷰)</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 18px;">location_on</span>
+<span class="">아주르 베이</span>
+</div>
+</div>
+</div>
+<!-- Seller Profile Minimal -->
+<div class="mb-xl">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-lg">활동 소개</h2>
+<!-- Rich Content: Feature 1 -->
+<div class="mb-xl">
+<div class="flex gap-3 overflow-x-auto hide-scrollbar mb-md -mx-container-margin px-container-margin"><img alt="Paddleboarding at sunrise" class="w-[280px] h-64 object-cover rounded-2xl shadow-sm flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcmi_2fOzuArWlEaamvUtKE0nFBfPpS6xrCYa_M4XlO8usJ8A99kQe1AgiRhlVFbKiHBZ4hhvfm0SSptVABrzC_gBuV4K8XDD65AjUjxd4IsqzRnIb0fMmajMVCnbewVr-s27TEatg8W6WSl2J1M9fnPX81I4Jhr3RgbAuEWc6ieDfa1NlwZMknbNZc-tDlncANOhdkH3qM9GUEsVy6TXE9LSUcjfKPzchdCJESiiH7__bmdgDyzFXCtmMMYrr6oXP9wObKBvCtG3D"><img alt="Close up of turquoise water" class="w-[280px] h-64 object-cover rounded-2xl shadow-sm flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcmi_2fOzuArWlEaamvUtKE0nFBfPpS6xrCYa_M4XlO8usJ8A99kQe1AgiRhlVFbKiHBZ4hhvfm0SSptVABrzC_gBuV4K8XDD65AjUjxd4IsqzRnIb0fMmajMVCnbewVr-s27TEatg8W6WSl2J1M9fnPX81I4Jhr3RgbAuEWc6ieDfa1NlwZMknbNZc-tDlncANOhdkH3qM9GUEsVy6TXE9LSUcjfKPzchdCJESiiH7__bmdgDyzFXCtmMMYrr6oXP9wObKBvCtG3D"><img alt="Aerial view of the bay" class="w-[280px] h-64 object-cover rounded-2xl shadow-sm flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcmi_2fOzuArWlEaamvUtKE0nFBfPpS6xrCYa_M4XlO8usJ8A99kQe1AgiRhlVFbKiHBZ4hhvfm0SSptVABrzC_gBuV4K8XDD65AjUjxd4IsqzRnIb0fMmajMVCnbewVr-s27TEatg8W6WSl2J1M9fnPX81I4Jhr3RgbAuEWc6ieDfa1NlwZMknbNZc-tDlncANOhdkH3qM9GUEsVy6TXE9LSUcjfKPzchdCJESiiH7__bmdgDyzFXCtmMMYrr6oXP9wObKBvCtG3D"></div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">투명한 바다 위에서의 힐링</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            아침 햇살이 아래의 활기찬 해양 생태계를 비출 때 크리스탈 코브의 맑고 투명한 물 위를 미끄러지듯 나아가세요. 이 가이드 투어는 당신의 정신을 재충전하고 바다의 리듬과 깊이 교감할 수 있도록 설계되었습니다.
+        </p>
+</div>
+<!-- Feature Breakdown: Icons -->
+<div class="grid grid-cols-2 gap-4 mb-xl">
+<div class="p-4 bg-surface-container-low rounded-2xl border border-surface-variant">
+<span class="material-symbols-outlined text-ocean-blue mb-2" style="font-size: 32px;">verified_user</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">안전 제일</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">전문 강사의 1:1 안전 교육 및 구명조끼 상시 착용</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-2xl border border-surface-variant">
+<span class="material-symbols-outlined text-ocean-blue mb-2" style="font-size: 32px;">surfing</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">최고급 장비</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">초보자도 안정적인 프리미엄 카본 패들보드 제공</p>
+</div>
+</div>
+<!-- Rich Content: Feature 2 -->
+<div class="mb-xl">
+<div class="bg-surface-container-highest rounded-2xl p-6 mb-md">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4">투어 일정 (What to expect)</h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="font-title-lg text-ocean-blue">01</span>
+<div>
+<p class="font-title-lg text-on-surface">기초 교육</p>
+<p class="font-body-md text-on-surface-variant">해변에서 패들링 기술 및 안전 수칙 숙지 (20분)</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="font-title-lg text-ocean-blue">02</span>
+<div>
+<p class="font-title-lg text-on-surface">코브 탐험</p>
+<p class="font-body-md text-on-surface-variant">가이드와 함께 숨겨진 산호초 포인트 탐방 (60분)</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="font-title-lg text-ocean-blue">03</span>
+<div>
+<p class="font-title-lg text-on-surface">자유 시간 및 포토타임</p>
+<p class="font-body-md text-on-surface-variant">아름다운 풍경을 배경으로 인생샷 촬영 (30분)</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Safety Badges -->
+<div class="flex flex-wrap gap-2 mb-xl">
+<div class="flex items-center gap-1 px-3 py-1.5 bg-success-green/10 text-success-green rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> 보험 가입 완료
+        </div>
+<div class="flex items-center gap-1 px-3 py-1.5 bg-success-green/10 text-success-green rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> 자격증 보유 강사
+        </div>
+<div class="flex items-center gap-1 px-3 py-1.5 bg-success-green/10 text-success-green rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> 소규모 그룹 진행
+        </div>
+</div>
+</div>
+<!-- Description -->
+<!-- Date Selection Calendar Widget -->
+
+<!-- Detailed Review Section -->
+<div class="mb-xl">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-2">
+<h2 class="font-title-lg text-title-lg text-on-surface">이용자 후기</h2>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-full font-label-md text-label-md">128</span>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant font-body-md text-body-md hover:text-ocean-blue transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">sort</span>
+<span class="">추천순</span>
+</button>
+</div>
+<!-- Sorting Filter -->
+<div class="flex gap-2 mb-4 overflow-x-auto hide-scrollbar pb-1">
+<button class="px-4 py-1.5 rounded-full border border-ocean-blue bg-ocean-blue/10 text-ocean-blue font-label-md text-label-md whitespace-nowrap">추천순</button>
+<button class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">최신순</button>
+<button class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">별점 높은 순</button>
+<button class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">별점 낮은 순</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-title-lg text-title-lg">M</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface text-base leading-none mb-1">마커스 T.</p>
+<p class="font-label-md text-label-md text-outline-variant">2023년 10월 15일</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">"정말 숨이 멎을 듯한 경험이었습니다. 엘레나는 훌륭한 가이드였고, 물의 투명도는 믿을 수 없을 정도였습니다. 평화로운 아침을 위해 강력히 추천합니다. 장비도 훌륭했고 투어 내내 안전하게 느껴졌습니다."</p>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-title-lg text-title-lg">S</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface text-base leading-none mb-1">사라 J.</p>
+<p class="font-label-md text-label-md text-outline-variant">2023년 9월 28일</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-coral" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">"휴식과 활동의 완벽한 조화. 제공된 장비는 최고급이었고 아주 깨끗했습니다. 다만 주차 공간을 찾기가 조금 어려웠던 점이 아쉬웠습니다. 그 외에는 완벽했습니다."</p>
+</div>
+</div>
+<button class="w-full mt-4 py-3 border border-outline-variant rounded-full text-on-surface font-title-lg text-title-lg hover:bg-surface-variant transition-colors">후기 128개 모두 보기</button>
+</div>
+<!-- Spacing for bottom bar -->
+<div class="h-10"></div>
+</section>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-nav pb-safe pt-sm px-container-margin md:max-w-3xl md:left-1/2 md:-translate-x-1/2 md:rounded-t-[24px] md:border-x">
+<div class="flex items-center justify-between gap-4 w-full">
+<!-- Price and Like -->
+<div class="flex items-center gap-4">
+<button aria-label="Save to favorites" class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant text-on-surface-variant hover:text-coral hover:border-coral hover:bg-coral/5 transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<div>
+<p class="font-label-md text-label-md text-outline-variant uppercase">총 금액</p>
+<p class="font-price-display text-price-display text-on-surface">$85 <span class="font-body-md text-body-md font-normal text-outline">/인</span></p>
+</div>
+</div>
+<!-- Reserve Button -->
+<button class="flex-1 bg-coral text-white font-title-lg text-title-lg py-3 px-6 rounded-[16px] shadow-sm hover:opacity-90 active:scale-95 transition-all text-center">
+                    예약하기
+                </button>
+</div>
+</div>
+</main>
+
+
+</body></html>

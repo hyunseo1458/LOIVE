@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TIDE - Popular Activities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f9f9ff",
+                        "coral": "#FF7F50",
+                        "secondary-fixed-dim": "#ffb59c",
+                        "on-tertiary-container": "#fffbff",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-high": "#e6e8f3",
+                        "surface-tint": "#005bc1",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414755",
+                        "sun-yellow": "#FFD700",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#181c23",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "surface-variant": "#e0e2ed",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fe7e4f",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#6b1f00",
+                        "ocean-blue": "#007AFF",
+                        "on-primary-fixed": "#001a41",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcc",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#351000",
+                        "inverse-primary": "#adc6ff",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ecedf9",
+                        "outline": "#717786",
+                        "on-secondary-fixed-variant": "#822800",
+                        "on-secondary-fixed": "#380c00",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#9e3d00",
+                        "on-primary-fixed-variant": "#004493",
+                        "secondary": "#a43c12",
+                        "tertiary-container": "#c64f00",
+                        "inverse-on-surface": "#eef0fc",
+                        "primary": "#0058bc",
+                        "secondary-fixed": "#ffdbcf",
+                        "surface-container-low": "#f1f3fe",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "deep-teal": "#005F6B",
+                        "surface-dim": "#d8d9e5",
+                        "on-surface": "#181c23",
+                        "background": "#f9f9ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-container-highest": "#e0e2ed",
+                        "on-primary-container": "#fefcff",
+                        "primary-container": "#0070eb",
+                        "inverse-surface": "#2d3039",
+                        "surface": "#f9f9ff",
+                        "success-green": "#34C759",
+                        "error-red": "#FF3B30",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "20px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "gutter": "12px",
+                        "xs": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "price-display": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "price-display": ["22px", {"lineHeight": "28px", "fontWeight": "800"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright min-h-screen font-body-lg text-body-lg text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm flex items-center justify-between px-container-margin h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Go back" class="text-ocean-blue hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface tracking-tight">인기 액티비티</h1>
+<button aria-label="Search" class="text-ocean-blue hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-[28px]" data-icon="search">search</span>
+</button>
+</header>
+<main class="pt-20 pb-safe pb-10 px-container-margin max-w-7xl mx-auto flex flex-col gap-lg">
+<!-- Filter Section -->
+<section class="flex flex-col gap-xs">
+<div class="flex gap-xs overflow-x-auto no-scrollbar pb-2 pt-1 -mx-container-margin px-container-margin">
+<button class="px-5 py-2 rounded-full bg-ocean-blue text-on-primary font-label-md text-label-md whitespace-nowrap shadow-sm">전체</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">수상 스포츠</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">자연</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">코스</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">문화</button>
+</div>
+<div class="flex justify-end pt-1">
+<button class="flex items-center gap-1 text-outline font-label-md text-label-md hover:text-ocean-blue transition-colors">
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+                    추천순
+                </button>
+</div>
+</section>
+<!-- List Layout (Infinite Scroll style) -->
+<section class="flex flex-col gap-md">
+<!-- Activity Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,122,255,0.08)] overflow-hidden flex flex-col border border-outline-variant/10 group cursor-pointer active:scale-[0.99] transition-transform">
+<div class="relative h-48 w-full bg-surface-variant overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+<img alt="Transparent kayak on clear water" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A top-down view of a modern transparent kayak gliding over crystal clear, bright blue ocean water. The sun is shining brightly, creating shimmering light reflections on the water's surface, evoking a Pristine Vitality and Bright &amp; Airy aesthetic. The sand beneath the water is white and clean. High key lighting, minimalist nature photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAGciAdlggxBN5wq9JgoEzcpD87Zjco3Tyim5x4O_zRAYLMBSLDRBr8dd41kfUpplu7-3RI0cresPLDZTSHPlBBsb_HxncrzCGJpI0iiEV9_DW_wx2iA3iibhuIUYafFpsmEzRJagryCa7VOgg70crxpalZdsunnQ-InaGrz5p_SZEIk6mG17ZjX0plR8REphGd4EA9p5LzPEKK6zGhv50VzvQS-7jWqdBPCYQAhhS6rDNdMcGWZo5gY8Ngd9mMC5xhDeGkvsR5lRj">
+<button aria-label="Save to wishlist" class="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-surface/30 backdrop-blur-md flex items-center justify-center text-on-primary hover:text-coral transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/40 backdrop-blur-md text-on-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.9
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-xs">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">투명 카약 체험</h2>
+<p class="font-body-md text-body-md text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                애월 해안
+                            </p>
+</div>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline mb-0.5">1인 기준</span>
+<span class="font-price-display text-price-display text-ocean-blue tracking-tight">₩45,000<span class="font-body-md text-body-md font-normal text-outline ml-1">부터</span></span>
+</div>
+<button class="bg-coral text-white px-6 py-2.5 rounded-[16px] font-label-md text-label-md hover:bg-secondary-container active:scale-95 transition-all shadow-sm">
+                            예약
+                        </button>
+</div>
+</div>
+</article>
+<!-- Activity Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,122,255,0.08)] overflow-hidden flex flex-col border border-outline-variant/10 group cursor-pointer active:scale-[0.99] transition-transform">
+<div class="relative h-48 w-full bg-surface-variant overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+<img alt="Surfing on a bright day" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dynamic, wide-angle shot of a person surfing on a clean, bright blue ocean wave under a clear sunny sky. The water spray is white and energetic, capturing the essence of 'Pristine Vitality'. The lighting is bright and airy, with minimal shadows, emphasizing the refreshing and adventurous spirit of water sports." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzLpWaxY9cpmE7ykYVNSs9hzpYxTjlTR7nsjXTCgmJMX65rUc3a8JWXhjoeT48m-ggaByUyKm3J69U1FjnNdLpWNeWzrD9HVOC0glWBs7USMoynn-fIaYPmvDjm2ne_ylKpeZMDKKZZp-eX1MhbD-kaSNF6OrEQCHpZnzEB0JTSl3f3sO-aG0KC-3bmAO3OjRtY6WRsRjjevObujLPGk__a6z4YcePIIK3ASpJo9jRa8UNseMakG8LFNY5s2efYZsJAFOQRAwnk21L">
+<button aria-label="Remove from wishlist" class="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-surface/30 backdrop-blur-md flex items-center justify-center text-coral hover:text-coral transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/40 backdrop-blur-md text-on-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.8
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-xs">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">프리미엄 서핑 강습</h2>
+<p class="font-body-md text-body-md text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                중문 색달 해변
+                            </p>
+</div>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline mb-0.5">1인 기준 (2시간)</span>
+<span class="font-price-display text-price-display text-ocean-blue tracking-tight">₩60,000</span>
+</div>
+<button class="bg-coral text-white px-6 py-2.5 rounded-[16px] font-label-md text-label-md hover:bg-secondary-container active:scale-95 transition-all shadow-sm">
+                            예약
+                        </button>
+</div>
+</div>
+</article>
+<!-- Activity Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,122,255,0.08)] overflow-hidden flex flex-col border border-outline-variant/10 group cursor-pointer active:scale-[0.99] transition-transform">
+<div class="relative h-48 w-full bg-surface-variant overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+<img alt="Underwater diving" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ethereal underwater photograph showing a scuba diver exploring a vibrant, clean coral reef. The water is incredibly clear, glowing with a deep ocean blue hue as sunlight filters down from the surface, creating a Bright &amp; Airy aquatic atmosphere. The image feels serene, trustworthy, and visually expansive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlZLMA1X5ZiBabutTEeuZAK8roJWvOINmjBLrIIEEBBlRa7zqv7DqMZWvAoEQkG8uNWDACPXIpTU-OjPp0JjmKEnmJ8mCk_BiYluo22zmBjc6ubZV5CuuutDPHjimE9fyjOFAHkG4CHe4zieiVAKCAC8oekfMOg-Soqu4vZapK2s5ScK5EAwWqrA2ixSBmPlFAzKKzF2lnILOb7BdrmZKbKQjKTgyHYNSkMZ34HGG6ss_X7-D1WFsOulVPqoefeE5l6ARoLq3Lx67l">
+<button aria-label="Save to wishlist" class="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-surface/30 backdrop-blur-md flex items-center justify-center text-on-primary hover:text-coral transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/40 backdrop-blur-md text-on-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        5.0
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-xs">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">해녀 체험 다이빙</h2>
+<p class="font-body-md text-body-md text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                우도
+                            </p>
+</div>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline mb-0.5">1인 기준 (장비 포함)</span>
+<span class="font-price-display text-price-display text-ocean-blue tracking-tight">₩80,000</span>
+</div>
+<button class="bg-coral text-white px-6 py-2.5 rounded-[16px] font-label-md text-label-md hover:bg-secondary-container active:scale-95 transition-all shadow-sm">
+                            예약
+                        </button>
+</div>
+</div>
+</article>
+</section>
+<!-- Loading Spinner for Infinite Scroll feel -->
+<div class="flex justify-center py-6">
+<span class="material-symbols-outlined text-ocean-blue/50 text-[32px] animate-spin">refresh</span>
+</div>
+</main>
+</body></html>

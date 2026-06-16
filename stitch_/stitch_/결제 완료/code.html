@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TIDE - 결제 완료</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#ffb59c",
+                      "surface-container-high": "#e6e8f3",
+                      "on-secondary-fixed": "#380c00",
+                      "tertiary-fixed-dim": "#ffb595",
+                      "primary": "#0058bc",
+                      "on-surface-variant": "#414755",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#ffdbcf",
+                      "secondary": "#a43c12",
+                      "inverse-primary": "#adc6ff",
+                      "on-secondary": "#ffffff",
+                      "success-green": "#34C759",
+                      "on-background": "#181c23",
+                      "inverse-on-surface": "#eef0fc",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#6b1f00",
+                      "on-surface": "#181c23",
+                      "coral": "#FF7F50",
+                      "surface": "#f9f9ff",
+                      "surface-dim": "#d8d9e5",
+                      "tertiary": "#9e3d00",
+                      "on-tertiary-fixed": "#351000",
+                      "ocean-blue": "#007AFF",
+                      "tertiary-fixed": "#ffdbcc",
+                      "on-primary-fixed": "#001a41",
+                      "on-secondary-fixed-variant": "#822800",
+                      "on-tertiary-container": "#fffbff",
+                      "sun-yellow": "#FFD700",
+                      "outline": "#717786",
+                      "surface-container": "#ecedf9",
+                      "background": "#f9f9ff",
+                      "surface-variant": "#e0e2ed",
+                      "on-primary-fixed-variant": "#004493",
+                      "on-primary-container": "#fefcff",
+                      "on-tertiary-fixed-variant": "#7c2e00",
+                      "primary-fixed-dim": "#adc6ff",
+                      "surface-container-highest": "#e0e2ed",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f1f3fe",
+                      "inverse-surface": "#2d3039",
+                      "error-red": "#FF3B30",
+                      "tertiary-container": "#c64f00",
+                      "surface-tint": "#005bc1",
+                      "surface-container-lowest": "#ffffff",
+                      "deep-teal": "#005F6B",
+                      "primary-container": "#0070eb",
+                      "primary-fixed": "#d8e2ff",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#fe7e4f",
+                      "surface-bright": "#f9f9ff",
+                      "outline-variant": "#c1c6d7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "lg": "24px",
+                      "sm": "12px",
+                      "container-margin": "20px",
+                      "base": "4px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-md": ["Hanken Grotesk"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "title-lg": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "price-display": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "price-display": ["22px", {"lineHeight": "28px", "fontWeight": "800"}],
+                      "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen pb-xl antialiased selection:bg-primary-fixed selection:text-on-primary-fixed" data-mode="connect">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-outline-variant/30 shadow-sm transition-all duration-200 flex items-center justify-between px-container-margin h-16">
+<button class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-transform">
+<span class="material-symbols-outlined"><span style="color: rgb(0, 88, 188);" class=""><span style="color: rgb(0, 122, 255);" class="">arrow_back</span></span></span>
+</button>
+<div class="font-display-lg text-ocean-blue tracking-tighter text-headline-md-mobile md:text-headline-md font-headline-md"><b>LOIVE</b></div>
+<button class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<!-- Main Content Container -->
+<main class="pt-[100px] px-container-margin max-w-lg mx-auto flex flex-col gap-lg">
+<!-- Status Header -->
+<section class="flex flex-col items-center text-center gap-sm mt-md">
+<div class="w-[80px] h-[80px] rounded-full bg-success-green/10 flex items-center justify-center animate-[pulse_2s_ease-in-out_infinite]">
+<span class="material-symbols-outlined text-[48px] text-success-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-sm">예약이 완료되었습니다!</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">고객님의 소중한 바다 여행이 준비되었습니다.</p>
+</section>
+<!-- Booking Summary Card -->
+<section class="bg-surface-container-lowest rounded-[20px] shadow-[0_4px_12px_rgba(0,122,255,0.08)] overflow-hidden border border-outline-variant/20">
+<div class="h-[180px] w-full bg-cover bg-center" data-alt="A pristine, bright underwater scene in a light-mode aesthetic, featuring crystal clear azure ocean water illuminated by piercing sun rays. A scuba diver gracefully explores a vibrant coral reef in the distance. The mood is exhilarating, serene, and deeply connected to nature, perfectly matching the high-key, modern corporate travel app identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJnj1j_EH9EYqsQ4IceXmvhJ5GnNgfiLN6Xi-z0BxL5jnGjHlg9T8vg4uPNmTfdditPrtPtcbJG0l1oBybMAKELsmjfKU8z3NNa_d6lofXmyRgSQSgApQg1mcKfbAC2N7pxIpMYNRaviyHGmAXi08ii5JvoYxyTaXPIPjA6fHJ7mylBTZlGMr_1et57XBrGV05smZyKxDclt-HzPwx2pZo5ibRvtBzHCiCvFzTXmcu9lw3V0myq91TkoF6IezjQBiwNcEYkFZYiK75');"></div>
+<div class="p-lg flex flex-col gap-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">오픈워터 자격증 코스</h2>
+<div class="flex flex-col gap-xs mt-xs">
+<div class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span class="">2023년 10월 15일</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="">제주도, 대한민국</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Details -->
+<section class="bg-surface-container-low rounded-[20px] p-lg flex flex-col gap-md">
+<h3 class="font-title-lg text-title-lg text-on-surface border-b border-outline-variant/20 pb-sm">결제 정보</h3>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">결제 금액</span>
+<span class="font-price-display text-price-display text-primary">850,000원</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">결제 수단</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">카카오페이</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">예약 번호</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold text-ocean-blue">TIDE-231015-09A</span>
+</div>
+</div>
+</section>
+<!-- Voucher / QR Section -->
+<section class="border-2 border-ocean-blue/20 border-dashed rounded-[20px] p-lg flex items-center justify-between bg-surface-bright/50 backdrop-blur-sm relative overflow-hidden group hover:border-ocean-blue/50 transition-colors cursor-pointer">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-surface rounded-full border-r-2 border-ocean-blue/20"></div>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-surface rounded-full border-l-2 border-ocean-blue/20"></div>
+<div class="flex flex-col gap-base pl-sm">
+<span class="font-title-lg text-title-lg text-on-surface">모바일 바우처</span>
+<span class="font-body-md text-body-md text-on-surface-variant">현장에서 QR코드를 제시해주세요</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-ocean-blue/10 text-ocean-blue flex items-center justify-center group-hover:bg-ocean-blue/20 transition-colors mr-sm">
+<span class="material-symbols-outlined">qr_code_2</span>
+</div>
+</section>
+<!-- Action Buttons -->
+<section class="flex flex-col gap-sm mt-md pb-xl">
+<button class="w-full bg-coral text-on-primary font-label-md text-label-md py-[16px] rounded-[16px] active:scale-[0.98] transition-transform flex items-center justify-center shadow-[0_4px_12px_rgba(255,127,80,0.2)]">
+                예약 내역 보기
+            </button>
+<button class="w-full bg-ocean-blue/10 text-ocean-blue font-label-md text-label-md py-[16px] rounded-[16px] active:scale-[0.98] transition-transform flex items-center justify-center">
+                홈으로 이동
+            </button>
+</section>
+</main>
+<!-- Note: BottomNavBar is intentionally suppressed per the 'Destination Rule' (Linear/Transactional Success screen) to maintain focus and prevent unwanted global navigation departure before the user completes their post-booking review. -->
+
+
+</body></html>

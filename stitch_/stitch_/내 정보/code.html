@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>마이 | LOIVE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-background": "#181c23",
+                "error": "#ba1a1a",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#822800",
+                "deep-teal": "#005F6B",
+                "error-red": "#FF3B30",
+                "surface-container": "#ecedf9",
+                "on-error": "#ffffff",
+                "tertiary-container": "#c64f00",
+                "secondary-container": "#fe7e4f",
+                "coral": "#FF7F50",
+                "surface-container-lowest": "#ffffff",
+                "on-primary": "#ffffff",
+                "background": "#f9f9ff",
+                "outline": "#717786",
+                "on-secondary-fixed": "#380c00",
+                "on-primary-fixed": "#001a41",
+                "primary-container": "#0070eb",
+                "on-surface-variant": "#414755",
+                "secondary-fixed": "#ffdbcf",
+                "tertiary-fixed-dim": "#ffb595",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#6b1f00",
+                "on-tertiary-fixed": "#351000",
+                "tertiary-fixed": "#ffdbcc",
+                "on-primary-fixed-variant": "#004493",
+                "surface-bright": "#f9f9ff",
+                "on-primary-container": "#fefcff",
+                "tertiary": "#9e3d00",
+                "on-tertiary-container": "#fffbff",
+                "on-tertiary-fixed-variant": "#7c2e00",
+                "on-surface": "#181c23",
+                "on-secondary": "#ffffff",
+                "surface": "#f9f9ff",
+                "surface-dim": "#d8d9e5",
+                "outline-variant": "#c1c6d7",
+                "ocean-blue": "#007AFF",
+                "primary": "#0058bc",
+                "secondary-fixed-dim": "#ffb59c",
+                "inverse-primary": "#adc6ff",
+                "success-green": "#34C759",
+                "surface-container-high": "#e6e8f3",
+                "secondary": "#a43c12",
+                "surface-variant": "#e0e2ed",
+                "surface-tint": "#005bc1",
+                "inverse-on-surface": "#eef0fc",
+                "sun-yellow": "#FFD700",
+                "primary-fixed-dim": "#adc6ff",
+                "surface-container-highest": "#e0e2ed",
+                "inverse-surface": "#2d3039",
+                "surface-container-low": "#f1f3fe",
+                "primary-fixed": "#d8e2ff",
+                "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "sm": "12px",
+                "xl": "32px",
+                "gutter": "12px",
+                "base": "4px",
+                "xs": "8px",
+                "md": "16px",
+                "lg": "24px",
+                "container-margin": "20px"
+            },
+            "fontFamily": {
+                "title-lg": ["Plus Jakarta Sans"],
+                "price-display": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "label-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "price-display": ["22px", {"lineHeight": "28px", "fontWeight": "800"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-nav {
+            background: rgba(249, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .profile-card-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 122, 255, 0.08);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- TopAppBar Mapping -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
+<div class="flex items-center justify-between px-container-margin h-16 w-full max-w-7xl mx-auto">
+<h1 class="font-headline-md text-ocean-blue">내 정보</h1>
+<div class="flex gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 text-outline">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 text-outline">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 px-container-margin max-w-7xl mx-auto">
+<!-- Profile Section -->
+<section class="mb-8 bg-surface rounded-3xl p-6 profile-card-shadow">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-20 h-20 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfkYXEQUhQPafOeAOmysRzMHVHOZXIwebgynPk1_N-mmlFB15Kq7lOl-JyLmuxp4qlHHh3K4aiyY3ZUsk43EdU38oZR0xbeAu1Fk_JCP09T9KQqcDKf6tEPNYwRYIhc2nlCUaaG1_Be7Ft9FoPFtKwVxAySqRqDACtmmnUJ0LiAkwAnMEH_YZYL0qDhK8YmEQ91lbmG6OFIXAwGh_0dutdpmZAr3642ArEBDSVP2h08WJm046ELCLG1hFoI7GBTFkIJTZY6Da6Xwm8">
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1">
+<h2 class="font-title-lg text-title-lg text-on-surface">김로컬</h2>
+</div>
+<p class="font-body-md text-outline">local.dive@loive.com</p>
+</div>
+</div>
+<button class="w-full py-2.5 border border-outline-variant text-ocean-blue font-label-md text-label-md rounded-xl hover:bg-ocean-blue/5 transition-colors">
+                프로필 수정
+            </button>
+</section>
+<!-- Activity/Benefits Section -->
+<section class="mb-10">
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<div class="flex-shrink-0 w-32 aspect-square bg-surface border border-outline-variant/30 rounded-2xl profile-card-shadow flex flex-col items-center justify-center gap-2 hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-coral text-3xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md text-on-surface">찜한 액티비티</span>
+</div>
+<div class="flex-shrink-0 w-32 aspect-square bg-surface border border-outline-variant/30 rounded-2xl profile-card-shadow flex flex-col items-center justify-center gap-2 hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-sun-yellow text-3xl" data-icon="grade" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="font-label-md text-label-md text-on-surface">내가 쓴 리뷰</span>
+</div>
+<div class="flex-shrink-0 w-32 aspect-square bg-surface border border-outline-variant/30 rounded-2xl profile-card-shadow flex flex-col items-center justify-center gap-2 hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-ocean-blue text-3xl" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-md text-label-md text-on-surface">쿠폰 / 포인트</span>
+</div>
+</div>
+</section>
+<!-- Menu List Group 1 -->
+<div class="space-y-6">
+<section>
+<h3 class="font-label-md text-label-md text-outline px-2 mb-3 tracking-wider">활동 관리</h3>
+<div class="bg-surface rounded-2xl overflow-hidden border border-outline-variant/20">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-ocean-blue transition-colors" data-icon="payments">payments</span>
+<span class="font-body-lg text-body-lg text-on-surface">결제 수단 관리</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="mx-4 h-[1px] bg-outline-variant/20"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-ocean-blue transition-colors" data-icon="location_on">location_on</span>
+<span class="font-body-lg text-body-lg text-on-surface">자주 가는 지역 설정</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Menu List Group 2 -->
+<section>
+<h3 class="font-label-md text-label-md text-outline px-2 mb-3 tracking-wider">앱 설정</h3>
+<div class="bg-surface rounded-2xl overflow-hidden border border-outline-variant/20">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group" style="transform: scale(1);">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-ocean-blue transition-colors" data-icon="notifications_active">notifications_active</span>
+<span class="font-body-lg text-body-lg text-on-surface">알림 설정</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="mx-4 h-[1px] bg-outline-variant/20"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-ocean-blue transition-colors" data-icon="language">language</span>
+<span class="font-body-lg text-body-lg text-on-surface">언어 / 통화 설정</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="mx-4 h-[1px] bg-outline-variant/20"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-ocean-blue transition-colors" data-icon="help_center">help_center</span>
+<span class="font-body-lg text-body-lg text-on-surface">고객센터 / 문의하기</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Menu List Group 3 -->
+<section>
+<h3 class="font-label-md text-label-md text-outline px-2 mb-3 tracking-wider">약관 및 계정</h3>
+<div class="bg-surface rounded-2xl overflow-hidden border border-outline-variant/20">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-ocean-blue transition-colors" data-icon="policy">policy</span>
+<span class="font-body-lg text-body-lg text-on-surface">약관 및 개인정보처리방침</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<button class="w-full p-6 text-center text-outline font-body-md hover:text-error-red transition-colors">
+                로그아웃
+            </button>
+</div>
+</main>
+<!-- BottomNavBar Mapping -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0px_-8px_24px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<div class="flex justify-around items-center h-20 pb-safe px-4">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-ocean-blue/70 scale-98 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="font-label-md text-label-md">홈</span>
+</button>
+<!-- Explore -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-ocean-blue/70 scale-98 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="explore">explore</span>
+<span class="font-label-md text-label-md">탐색</span>
+</button>
+<!-- Bookings -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-ocean-blue/70 scale-98 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">예약</span>
+</button>
+<!-- Profile (Active) -->
+<button class="flex flex-col items-center justify-center text-ocean-blue dark:text-primary-fixed-dim relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-ocean-blue after:rounded-full hover:text-ocean-blue/70 scale-98 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">마이</span>
+</button>
+</div>
+</nav>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.96)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+
+</body></html>
