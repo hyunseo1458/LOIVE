@@ -59,6 +59,6 @@ export const PRODUCT_DETAIL: ProductDetail = {
         "휴식과 활동의 완벽한 조화. 제공된 장비는 최고급이었고 아주 깨끗했습니다. 다만 주차 공간을 찾기가 조금 어려웠던 점이 아쉬웠습니다. 그 외에는 완벽했습니다.",
     },
   ],
-  pricePerPerson: 85,
-  currency: "$",
+  pricePerPerson: 85000,
+  currency: "₩",
 };

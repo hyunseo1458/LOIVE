@@ -36,7 +36,7 @@ export function StickyBookingBar({
             <p className="text-label-md text-outline-variant uppercase">총 금액</p>
             <p className="text-price-display text-on-surface">
               {currency}
-              {pricePerPerson} <span className="text-body-md font-normal text-outline">/인</span>
+              {pricePerPerson.toLocaleString()} <span className="text-body-md font-normal text-outline">/인</span>
             </p>
           </div>
         </div>

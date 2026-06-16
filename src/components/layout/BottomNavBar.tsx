@@ -3,12 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HomeIcon, GlobeAltIcon, CalendarIcon, UserIcon } from "@heroicons/react/24/outline";
-import { HomeIcon as HomeIconSolid, CalendarIcon as CalendarIconSolid } from "@heroicons/react/24/solid";
+import {
+  HomeIcon as HomeIconSolid,
+  GlobeAltIcon as GlobeAltIconSolid,
+  CalendarIcon as CalendarIconSolid,
+} from "@heroicons/react/24/solid";
 
 const TABS = [
   { key: "home", href: "/", label: "홈", icon: HomeIcon, activeIcon: HomeIconSolid },
-  // TODO: 탐색 화면 포팅 후 연결
-  { key: "explore", href: null, label: "탐색", icon: GlobeAltIcon, activeIcon: GlobeAltIcon },
+  { key: "explore", href: "/explore", label: "탐색", icon: GlobeAltIcon, activeIcon: GlobeAltIconSolid },
   { key: "bookings", href: "/bookings", label: "예약", icon: CalendarIcon, activeIcon: CalendarIconSolid },
   // TODO: 내 정보 화면 포팅 후 연결
   { key: "profile", href: null, label: "마이", icon: UserIcon, activeIcon: UserIcon },

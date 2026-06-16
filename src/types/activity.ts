@@ -14,7 +14,11 @@ export type Activity = {
   name: string;
   rating: number;
   location: string;
+  price: number;
   priceLabel: string;
+  category?: string;
+  priceUnitLabel?: string;
+  priceFrom?: boolean;
 };
 
 export type CourseTag = {
