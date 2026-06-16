@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens ported from stitch_/stitch_/tide/DESIGN.md (TIDE design system) */
+@theme {
+  --font-pretendard: "Pretendard Variable", sans-serif;
+
+  /* Colors */
+  --color-surface: #f9f9ff;
+  --color-surface-dim: #d8d9e5;
+  --color-surface-bright: #f9f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f1f3fe;
+  --color-surface-container: #ecedf9;
+  --color-surface-container-high: #e6e8f3;
+  --color-surface-container-highest: #e0e2ed;
+  --color-on-surface: #181c23;
+  --color-on-surface-variant: #414755;
+  --color-inverse-surface: #2d3039;
+  --color-inverse-on-surface: #eef0fc;
+  --color-outline: #717786;
+  --color-outline-variant: #c1c6d7;
+  --color-surface-tint: #005bc1;
+  --color-primary: #0058bc;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #0070eb;
+  --color-on-primary-container: #fefcff;
+  --color-inverse-primary: #adc6ff;
+  --color-secondary: #a43c12;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fe7e4f;
+  --color-on-secondary-container: #6b1f00;
+  --color-tertiary: #9e3d00;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #c64f00;
+  --color-on-tertiary-container: #fffbff;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #d8e2ff;
+  --color-primary-fixed-dim: #adc6ff;
+  --color-on-primary-fixed: #001a41;
+  --color-on-primary-fixed-variant: #004493;
+  --color-secondary-fixed: #ffdbcf;
+  --color-secondary-fixed-dim: #ffb59c;
+  --color-on-secondary-fixed: #380c00;
+  --color-on-secondary-fixed-variant: #822800;
+  --color-tertiary-fixed: #ffdbcc;
+  --color-tertiary-fixed-dim: #ffb595;
+  --color-on-tertiary-fixed: #351000;
+  --color-on-tertiary-fixed-variant: #7c2e00;
+  --color-background: #f9f9ff;
+  --color-on-background: #181c23;
+  --color-surface-variant: #e0e2ed;
+  --color-ocean-blue: #007aff;
+  --color-deep-teal: #005f6b;
+  --color-sun-yellow: #ffd700;
+  --color-coral: #ff7f50;
+  --color-error-red: #ff3b30;
+  --color-success-green: #34c759;
+
+  /* Typography — Pretendard only, every text style bundles size/line-height/weight/tracking */
+  --text-display-lg: 40px;
+  --text-display-lg--line-height: 48px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 800;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 700;
+
+  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile--line-height: 36px;
+  --text-headline-lg-mobile--font-weight: 700;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--font-weight: 700;
+
+  --text-title-lg: 20px;
+  --text-title-lg--line-height: 28px;
+  --text-title-lg--font-weight: 600;
+
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-md--font-weight: 400;
+
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.05em;
+  --text-label-md--font-weight: 600;
+
+  --text-price-display: 22px;
+  --text-price-display--line-height: 28px;
+  --text-price-display--font-weight: 800;
+
+  /* Spacing rhythm (used as p-md, gap-lg, mb-xl, etc.) */
+  --spacing-base: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-container-margin: 20px;
+  --spacing-gutter: 12px;
+
+  /* Skeleton loading: opacity pulse only — no gradient sweep (UX_PRINCIPLES.md / DESIGN.md hard constraint) */
+  --animate-skeleton-pulse: skeleton-pulse 1.8s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-pretendard);
+  background: var(--color-background);
+  color: var(--color-on-background);
+}
+
+/* Hide scrollbar for horizontal snap-scroll lists (Popular Activities, etc.) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
