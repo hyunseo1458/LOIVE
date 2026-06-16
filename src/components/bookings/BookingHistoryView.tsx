@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { BookingHistoryItem } from "@/types/booking-history";
 import { BookingHistoryCard } from "./BookingHistoryCard";
 import { CancelledEmptyState } from "./CancelledEmptyState";
@@ -55,13 +56,12 @@ export function BookingHistoryView({ items }: { items: BookingHistoryItem[] }) {
                     예약 취소
                   </button>
                 ) : (
-                  // TODO: 리뷰 작성 화면 포팅 후 연결
-                  <button
-                    type="button"
-                    className="w-full py-2.5 px-md rounded-xl bg-coral text-on-primary text-label-md hover:opacity-90 transition-all active:scale-95 shadow-md"
+                  <Link
+                    href={`/activities/${item.productId}/review`}
+                    className="w-full py-2.5 px-md rounded-xl bg-coral text-on-primary text-label-md hover:opacity-90 transition-all active:scale-95 shadow-md text-center block"
                   >
                     후기 작성
-                  </button>
+                  </Link>
                 )
               }
             />

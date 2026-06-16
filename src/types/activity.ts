@@ -48,9 +48,18 @@ export type Review = {
   id: string;
   authorInitial: string;
   authorName: string;
+  avatarUrl?: string;
   date: string;
   rating: number;
   comment: string;
+  photos?: string[];
+  helpfulCount?: number;
+};
+
+export type RatingBreakdown = {
+  average: number;
+  total: number;
+  counts: { stars: 5 | 4 | 3 | 2 | 1; percent: number }[];
 };
 
 export type ProductDetail = {

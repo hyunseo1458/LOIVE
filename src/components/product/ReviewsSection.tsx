@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
 import type { Review } from "@/types/activity";
 import { ReviewCard } from "./ReviewCard";
@@ -29,7 +30,15 @@ function sortReviews(reviews: Review[], sort: SortOption) {
   }
 }
 
-export function ReviewsSection({ reviews, reviewCount }: { reviews: Review[]; reviewCount: number }) {
+export function ReviewsSection({
+  productId,
+  reviews,
+  reviewCount,
+}: {
+  productId: string;
+  reviews: Review[];
+  reviewCount: number;
+}) {
   const [sort, setSort] = useState<SortOption>("추천순");
   const sortedReviews = useMemo(() => sortReviews(reviews, sort), [reviews, sort]);
 
@@ -74,12 +83,12 @@ export function ReviewsSection({ reviews, reviewCount }: { reviews: Review[]; re
         ))}
       </div>
 
-      <button
-        type="button"
-        className="w-full mt-4 py-3 border border-outline-variant rounded-full text-on-surface text-title-lg hover:bg-surface-variant transition-colors"
+      <Link
+        href={`/activities/${productId}/reviews`}
+        className="w-full mt-4 py-3 border border-outline-variant rounded-full text-on-surface text-title-lg hover:bg-surface-variant transition-colors text-center block"
       >
         후기 {reviewCount}개 모두 보기
-      </button>
+      </Link>
     </div>
   );
 }

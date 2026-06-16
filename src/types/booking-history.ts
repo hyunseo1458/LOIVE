@@ -2,6 +2,7 @@ export type BookingHistoryStatus = "upcoming" | "completed";
 
 export type BookingHistoryItem = {
   id: string;
+  productId: string;
   status: BookingHistoryStatus;
   imageUrl: string;
   imageAlt: string;

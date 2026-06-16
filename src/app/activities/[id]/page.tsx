@@ -33,7 +33,7 @@ export default function ActivityDetailPage() {
 
         <ItineraryList steps={product.itinerary} />
         <SafetyBadges badges={product.safetyBadges} />
-        <ReviewsSection reviews={product.reviews} reviewCount={product.reviewCount} />
+        <ReviewsSection productId={product.id} reviews={product.reviews} reviewCount={product.reviewCount} />
 
         <div className="h-10" />
       </section>
