@@ -15,9 +15,10 @@
 - **결제 완료 화면 포팅 완료** (`src/app/booking/[id]/complete/page.tsx`). BookingForm의 결제하기 버튼이 쿼리스트링으로 결제정보 전달하며 실제 라우팅됨. 예약번호는 `src/lib/reservation-code.ts`에서 생성.
 - **예약 내역 화면 포팅 완료** (`src/app/bookings/page.tsx` + `src/components/bookings/*`). 탭(예약확정/이용완료/취소내역) 클라이언트 상태로 전환. `BottomNavBar`를 실제 Link 기반 라우팅으로 개선함 (이전에는 active 표시만 되고 실제 이동은 안 됐었음 — 탐색/마이 탭은 아직 화면 없어 disabled 처리).
 - 프로젝트 권한: `.claude/settings.json`에 `npm run *`, `git status`, `git diff*` 허용 추가됨
+- **리뷰 화면 포팅 완료**: `/activities/[id]/reviews`(리뷰 목록), `/activities/[id]/review`(리뷰 작성). Stitch의 "상품 후기"와 "리뷰 전체보기"는 동일 기능의 두 목업이라 하나의 리뷰 목록 화면으로 통합함 (일관성 원칙 — 같은 기능에 다른 화면 2개를 만들지 않음).
 
-## 남은 화면 (5개, Stitch 원본 기준)
-인기 액티비티 전체보기 / 상품 후기 / 리뷰 작성 / 리뷰 전체보기 / 내 정보
+## 남은 화면 (2개, Stitch 원본 기준)
+인기 액티비티 전체보기 / 내 정보
 (원본 위치: `stitch_/stitch_/<화면명>/code.html`)
 
 ## 알아둘 점
@@ -28,5 +29,9 @@
 - 사용자가 "확인 없이 끝까지 진행" 요청함 — 화면 포팅 작업은 매번 yes/no 묻지 않고 이어서 진행 중
 
 ## 다음 액션
-1. 다음 화면 포팅 (WIP=1). 추천 순서: 리뷰 클러스터(상품 후기 → 리뷰 작성 → 리뷰 전체보기) → 인기 액티비티 전체보기 → 내 정보
+1. 다음 화면 포팅 (WIP=1). 추천 순서: 인기 액티비티 전체보기 → 내 정보
 2. Supabase 프로젝트 생성 후 연동 (Task #7)
+
+## 개발 서버 실시간 확인 방법
+- dev 서버를 세션 내내 하나만 띄워두고 있음 (http://localhost:3000). Next.js Fast Refresh가 파일 저장 시 브라우저를 자동 갱신하므로, 브라우저 탭을 열어두면 작업 중인 화면이 실시간으로 바뀌는 걸 볼 수 있음
+- VS Code의 Source Control 탭(Ctrl+Shift+G)을 열어두면 수정된 파일 목록과 diff가 실시간으로 표시됨
