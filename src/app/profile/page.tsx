@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   BanknotesIcon,
   MapPinIcon,
@@ -42,10 +43,10 @@ export default function ProfilePage() {
             items={[{ icon: ShieldCheckIcon, label: "약관 및 개인정보처리방침" }]}
           />
 
-          {/* TODO: 소셜로그인 연동 후 실제 로그아웃 로직 연결 */}
-          <button type="button" disabled className="w-full p-6 text-center text-outline opacity-70">
+          {/* TODO: Supabase Auth 연동 후 실제 세션 종료 로직 추가 */}
+          <Link href="/login" className="w-full p-6 text-center text-outline hover:text-error-red transition-colors block">
             로그아웃
-          </button>
+          </Link>
         </div>
       </main>
       <BottomNavBar />
