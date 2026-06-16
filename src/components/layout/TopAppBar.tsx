@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { REGIONS } from "@/data/mock-home";
@@ -58,12 +59,13 @@ export function TopAppBar() {
           </span>
         </div>
 
-        <button
-          type="button"
+        <Link
+          href="/search"
+          aria-label="검색"
           className="text-ocean-blue hover:opacity-80 active:scale-95 transition w-10 h-10 flex items-center justify-center -mr-2 rounded-full hover:bg-surface-container-high"
         >
           <MagnifyingGlassIcon className="size-6" />
-        </button>
+        </Link>
       </div>
     </header>
   );

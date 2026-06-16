@@ -8,10 +8,9 @@ export function ExploreHeader() {
         <span className="text-[24px] font-extrabold tracking-tight">로이브</span>
       </Link>
       <h1 className="text-headline-md-mobile md:text-headline-md text-on-surface tracking-tight">인기 액티비티</h1>
-      {/* TODO: 검색 화면 포팅 후 연결 */}
-      <button type="button" aria-label="검색" disabled className="text-ocean-blue opacity-50">
+      <Link href="/search" aria-label="검색" className="text-ocean-blue hover:opacity-80 active:scale-95 transition">
         <MagnifyingGlassIcon className="size-7" />
-      </button>
+      </Link>
     </header>
   );
 }
