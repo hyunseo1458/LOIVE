@@ -8,10 +8,9 @@ export function CompletionHeader({ backHref }: { backHref: string }) {
         <ArrowLeftIcon className="size-6" />
       </Link>
       <div className="text-ocean-blue tracking-tighter text-headline-md font-extrabold">LOIVE</div>
-      {/* TODO: 내 정보 화면 포팅 후 연결 */}
-      <button type="button" aria-label="마이페이지" disabled className="text-on-surface-variant opacity-50">
+      <Link href="/profile" aria-label="마이페이지" className="text-on-surface-variant hover:opacity-80 active:scale-95 transition-transform">
         <UserCircleIcon className="size-6" />
-      </button>
+      </Link>
     </header>
   );
 }
