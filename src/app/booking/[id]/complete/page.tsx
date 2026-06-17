@@ -7,7 +7,12 @@ import { PaymentDetailsCard } from "@/components/booking/PaymentDetailsCard";
 import { VoucherSection } from "@/components/booking/VoucherSection";
 import { CompletionActions } from "@/components/booking/CompletionActions";
 
-// TODO: Supabase 연동 후 params.id로 실제 예약 내역을 조회하도록 교체 (현재는 mock 단일 상품 + 쿼리스트링으로 결제 정보 전달)
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return [{ id: "1" }];
+}
+
 export default async function BookingCompletePage({
   params,
   searchParams,

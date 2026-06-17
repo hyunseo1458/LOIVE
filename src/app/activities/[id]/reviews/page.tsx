@@ -4,7 +4,10 @@ import { SubPageHeader } from "@/components/layout/SubPageHeader";
 import { ReviewListView } from "@/components/product/ReviewListView";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 
-// TODO: Supabase 연동 후 params.id로 실제 상품/리뷰를 조회하도록 교체 (현재는 mock 단일 상품만 존재)
+export function generateStaticParams() {
+  return [{ id: "1" }];
+}
+
 export default function ProductReviewsPage() {
   const product = PRODUCT_DETAIL;
 

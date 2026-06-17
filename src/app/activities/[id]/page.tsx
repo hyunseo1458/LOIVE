@@ -7,7 +7,10 @@ import { SafetyBadges } from "@/components/product/SafetyBadges";
 import { ReviewsSection } from "@/components/product/ReviewsSection";
 import { StickyBookingBar } from "@/components/product/StickyBookingBar";
 
-// TODO: Supabase 연동 후 params.id로 실제 상품을 조회하도록 교체 (현재는 mock 단일 상품만 존재)
+export function generateStaticParams() {
+  return [{ id: "1" }];
+}
+
 export default function ActivityDetailPage() {
   const product = PRODUCT_DETAIL;
 

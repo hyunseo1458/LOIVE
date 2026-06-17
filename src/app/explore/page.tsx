@@ -4,6 +4,8 @@ import { ExploreView } from "@/components/explore/ExploreView";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
 import type { RegionCode } from "@/types/activity";
 
+export const dynamic = "force-static";
+
 export default async function ExplorePage({
   searchParams,
 }: {

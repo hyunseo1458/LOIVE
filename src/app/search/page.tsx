@@ -1,5 +1,7 @@
 import { SearchView } from "@/components/search/SearchView";
 
+export const dynamic = "force-static";
+
 export default async function SearchPage({
   searchParams,
 }: {
