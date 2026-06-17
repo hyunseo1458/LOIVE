@@ -19,8 +19,8 @@ export function CategoryTabs({
               onClick={() => onChange(category)}
               className={`px-md py-xs rounded-full text-label-md whitespace-nowrap transition-all active:scale-95 ${
                 isActive
-                  ? "bg-ocean-blue text-on-primary shadow-[0px_4px_12px_rgba(0,122,255,0.2)]"
-                  : "bg-surface text-outline border border-outline-variant/30 hover:bg-surface-container-low hover:text-ocean-blue"
+                  ? "bg-on-surface text-on-primary shadow-sm"
+                  : "bg-surface text-outline border border-outline-variant/30 hover:bg-surface-container-low hover:text-on-surface"
               }`}
             >
               {category}

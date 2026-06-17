@@ -27,10 +27,10 @@ export function TopAppBar() {
             onClick={() => setOpen((v) => !v)}
             className="flex items-center gap-1 group -ml-2 px-2 py-1 rounded-full hover:bg-surface-container-high transition-colors"
           >
-            <span className="text-headline-lg-mobile md:text-headline-lg text-on-surface group-hover:text-ocean-blue transition-colors">
+            <span className="text-headline-lg-mobile md:text-headline-lg text-on-surface group-hover:text-coral transition-colors">
               {region}
             </span>
-            <ChevronDownIcon className="size-5 text-outline group-hover:text-ocean-blue transition-colors" />
+            <ChevronDownIcon className="size-5 text-outline group-hover:text-coral transition-colors" />
           </button>
 
           {open && (
@@ -42,7 +42,7 @@ export function TopAppBar() {
                     type="button"
                     onClick={() => selectRegion(r)}
                     className={`px-3 py-2 text-left text-body-md rounded-lg ${
-                      r === region ? "bg-ocean-blue/10 text-ocean-blue" : "hover:bg-ocean-blue/10"
+                      r === region ? "bg-coral/10 text-coral font-semibold" : "hover:bg-surface-container-low"
                     }`}
                   >
                     {r}
@@ -54,7 +54,7 @@ export function TopAppBar() {
         </div>
 
         <div className="absolute left-1/2 -translate-x-1/2">
-          <span className="text-ocean-blue text-[24px] font-extrabold tracking-tight">
+          <span className="text-coral text-[24px] font-extrabold tracking-tight">
             로이브
           </span>
         </div>
@@ -62,7 +62,7 @@ export function TopAppBar() {
         <Link
           href="/search"
           aria-label="검색"
-          className="text-ocean-blue hover:opacity-80 active:scale-95 transition w-10 h-10 flex items-center justify-center -mr-2 rounded-full hover:bg-surface-container-high"
+          className="text-on-surface-variant hover:text-on-surface active:scale-95 transition w-10 h-10 flex items-center justify-center -mr-2 rounded-full hover:bg-surface-container-high"
         >
           <MagnifyingGlassIcon className="size-6" />
         </Link>

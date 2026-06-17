@@ -16,8 +16,8 @@ export function HomeContent() {
 
   return (
     <>
-      <CategoryTabs active={category} onChange={setCategory} />
       <HeroBannerSlider />
+      <CategoryTabs active={category} onChange={setCategory} />
       <PopularActivitiesSection activities={filtered} />
       <ThemedCoursesSection />
     </>

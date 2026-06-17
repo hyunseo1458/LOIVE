@@ -14,7 +14,7 @@ export function SortControl({ value, onChange }: { value: SortOption; onChange: 
       <button
         type="button"
         onClick={cycleNext}
-        className="flex items-center gap-1 text-outline text-label-md hover:text-ocean-blue transition-colors"
+        className="flex items-center gap-1 text-outline text-label-md hover:text-on-surface transition-colors"
       >
         <ArrowsUpDownIcon className="size-4" />
         {value}

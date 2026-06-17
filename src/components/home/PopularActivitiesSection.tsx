@@ -6,8 +6,8 @@ export function PopularActivitiesSection({ activities }: { activities: Activity[
   return (
     <section className="mb-xl">
       <div className="px-container-margin md:px-0 flex justify-between items-end mb-md">
-        <h3 className="text-title-lg text-on-surface">인기 액티비티</h3>
-        <Link href="/explore" className="text-ocean-blue text-label-md hover:text-ocean-blue/80 transition-colors">
+        <h3 className="text-[18px] font-bold text-on-surface">인기 액티비티</h3>
+        <Link href="/explore" className="text-coral text-label-md hover:text-coral/80 transition-colors">
           전체보기
         </Link>
       </div>

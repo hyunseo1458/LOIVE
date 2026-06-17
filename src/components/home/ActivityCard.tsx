@@ -10,7 +10,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
   const bookingHref = `/booking/${activity.id}`;
 
   return (
-    <div className="relative w-64 md:w-72 shrink-0 snap-start bg-surface rounded-[20px] shadow-[0px_4px_12px_rgba(0,122,255,0.08)] overflow-hidden flex flex-col border border-outline-variant/10">
+    <div className="relative w-60 md:w-68 shrink-0 snap-start bg-surface rounded-2xl shadow-sm overflow-hidden flex flex-col">
       {/* 카드 전체 클릭 → 상세 페이지 */}
       <Link href={detailHref} aria-label={activity.name} className="absolute inset-0 z-0" />
 
@@ -40,7 +40,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
           <MapPinIcon className="size-3.5" /> {activity.location}
         </p>
         <div className="mt-auto flex items-center justify-between border-t border-outline-variant/10 pt-sm">
-          <span className="text-price-display text-ocean-blue tracking-tight">
+          <span className="text-price-display text-on-surface tracking-tight">
             {activity.priceLabel}
           </span>
           <Link

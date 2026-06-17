@@ -5,7 +5,7 @@
   --font-pretendard: "Pretendard Variable", sans-serif;
 
   /* Colors */
-  --color-surface: #f9f9ff;
+  --color-surface: #ffffff;
   --color-surface-dim: #d8d9e5;
   --color-surface-bright: #f9f9ff;
   --color-surface-container-lowest: #ffffff;
@@ -49,7 +49,7 @@
   --color-tertiary-fixed-dim: #ffb595;
   --color-on-tertiary-fixed: #351000;
   --color-on-tertiary-fixed-variant: #7c2e00;
-  --color-background: #f9f9ff;
+  --color-background: #f5f5f7;
   --color-on-background: #181c23;
   --color-surface-variant: #e0e2ed;
   --color-ocean-blue: #007aff;

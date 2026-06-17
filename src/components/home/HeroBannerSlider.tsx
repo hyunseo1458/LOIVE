@@ -88,14 +88,14 @@ export function HeroBannerSlider() {
               sizes="100vw"
               priority={index === 0}
             />
-            <div className="absolute inset-x-0 bottom-0 bg-on-surface/70 backdrop-blur-sm flex flex-col p-lg">
-              <span className="bg-coral text-on-error px-xs py-0.5 rounded text-label-md w-max mb-sm">
+            <div className="absolute inset-x-0 bottom-0 bg-on-surface/70 backdrop-blur-sm p-4 md:p-6">
+              <span className="inline-block bg-coral text-on-error px-2 py-0.5 rounded text-[12px] font-semibold mb-2">
                 {banner.tag}
               </span>
-              <h2 className="text-on-primary text-headline-lg-mobile md:text-headline-lg mb-xs">
+              <h2 className="text-white text-[22px] md:text-[28px] font-bold leading-tight mb-1">
                 {banner.title}
               </h2>
-              <p className="text-on-primary/90 text-body-md md:text-body-lg max-w-sm">
+              <p className="text-white/90 text-[13px] md:text-[15px] leading-snug">
                 {banner.description}
               </p>
             </div>

@@ -18,11 +18,11 @@ export function SubPageHeader({
           <Link
             href={backHref}
             aria-label="뒤로 가기"
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95 text-ocean-blue"
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95 text-on-surface"
           >
             <ArrowLeftIcon className="size-6" />
           </Link>
-          <h1 className="text-headline-md text-ocean-blue font-bold tracking-tighter">{title}</h1>
+          <h1 className="text-[18px] font-bold text-on-surface tracking-tight">{title}</h1>
         </div>
         {rightSlot ?? <div className="w-10" />}
       </div>

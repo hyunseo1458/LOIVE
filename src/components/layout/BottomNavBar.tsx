@@ -30,13 +30,12 @@ export function BottomNavBar() {
           <Link
             key={tab.key}
             href={tab.href}
-            className={`flex flex-col items-center justify-center relative active:scale-95 transition-all w-16 h-full ${
-              isActive ? "text-ocean-blue" : "text-outline hover:text-ocean-blue/70"
+            className={`flex flex-col items-center justify-center active:scale-95 transition-all w-16 h-full ${
+              isActive ? "text-coral" : "text-outline hover:text-on-surface-variant"
             }`}
           >
             <Icon className="size-6" />
-            <span className="text-label-md mt-1">{tab.label}</span>
-            {isActive && <span className="absolute -bottom-1 w-1 h-1 bg-ocean-blue rounded-full" />}
+            <span className="text-label-md mt-0.5">{tab.label}</span>
           </Link>
         );
       })}

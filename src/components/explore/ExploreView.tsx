@@ -43,7 +43,7 @@ export function ExploreView({
     <>
       {region && (
         <div className="flex items-center gap-1.5 -mt-sm">
-          <span className="inline-flex items-center gap-1.5 pl-3 pr-2 py-1.5 rounded-full bg-ocean-blue/10 text-ocean-blue text-label-md">
+          <span className="inline-flex items-center gap-1.5 pl-3 pr-2 py-1.5 rounded-full bg-coral/10 text-coral text-label-md">
             <MapPinIcon className="size-3.5" />
             {region} 지역
             <button type="button" aria-label="지역 필터 해제" onClick={() => setRegion(undefined)} className="hover:opacity-70">
@@ -58,7 +58,7 @@ export function ExploreView({
         <SortControl value={sort} onChange={setSort} />
       </section>
 
-      <section className="flex flex-col gap-md">
+      <section className="grid grid-cols-2 gap-3">
         {filtered.map((activity) => (
           <ActivityListCard key={activity.id} activity={activity} />
         ))}

@@ -18,7 +18,7 @@ export function CategoryFilterChips({
             onClick={() => onChange(category)}
             className={`px-5 py-2 rounded-full text-label-md whitespace-nowrap transition-colors ${
               isActive
-                ? "bg-ocean-blue text-on-primary shadow-sm"
+                ? "bg-on-surface text-on-primary shadow-sm"
                 : "bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant"
             }`}
           >

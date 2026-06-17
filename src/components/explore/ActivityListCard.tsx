@@ -10,42 +10,34 @@ export function ActivityListCard({ activity }: { activity: Activity }) {
   const bookingHref = `/booking/${activity.id}`;
 
   return (
-    <article className="relative bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,122,255,0.08)] overflow-hidden flex flex-col border border-outline-variant/10">
+    <article className="relative bg-surface rounded-xl shadow-sm overflow-hidden flex flex-col">
       <Link href={detailHref} aria-label={activity.name} className="absolute inset-0 z-0" />
 
-      <div className="relative h-48 w-full bg-surface-variant overflow-hidden pointer-events-none">
-        <Image fill className="object-cover" alt={activity.imageAlt} src={activity.imageUrl} sizes="100vw" />
+      <div className="relative aspect-[4/3] w-full bg-surface-variant overflow-hidden pointer-events-none">
+        <Image fill className="object-cover" alt={activity.imageAlt} src={activity.imageUrl} sizes="50vw" />
         <WishlistButton
           activityId={activity.id}
-          className="absolute top-3 right-3 z-20 w-11 h-11 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-outline hover:text-coral transition-colors shadow-sm pointer-events-auto"
-          iconClassName="size-5"
+          className="absolute top-2 right-2 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:text-coral transition-colors pointer-events-auto"
+          iconClassName="size-4"
         />
-        <div className="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/80 backdrop-blur-md text-on-surface text-label-md">
-          <StarIcon className="size-3.5 text-sun-yellow" />
+        <div className="absolute bottom-2 left-2 z-20 flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-black/40 backdrop-blur-sm text-white text-[11px] font-semibold">
+          <StarIcon className="size-3 text-sun-yellow" />
           {activity.rating}
         </div>
       </div>
 
-      <div className="p-4 flex flex-col gap-xs pointer-events-none">
-        <div>
-          <h2 className="text-title-lg text-on-surface">{activity.name}</h2>
-          <p className="text-body-md text-outline flex items-center gap-1 mt-0.5">
-            <MapPinIcon className="size-3.5" /> {activity.location}
-          </p>
-        </div>
-        <div className="flex items-end justify-between mt-2">
-          <div className="flex flex-col">
-            {activity.priceUnitLabel && (
-              <span className="text-label-md text-outline mb-0.5">{activity.priceUnitLabel}</span>
-            )}
-            <span className="text-price-display text-ocean-blue tracking-tight">
-              {activity.priceLabel}
-              {activity.priceFrom && <span className="text-body-md font-normal text-outline ml-1">부터</span>}
-            </span>
-          </div>
+      <div className="p-3 flex flex-col gap-1 pointer-events-none">
+        <h2 className="text-[14px] font-semibold text-on-surface leading-snug line-clamp-2">{activity.name}</h2>
+        <p className="text-[12px] text-outline flex items-center gap-0.5">
+          <MapPinIcon className="size-3 shrink-0" /> {activity.location}
+        </p>
+        <div className="flex items-center justify-between mt-1">
+          <span className="text-[16px] font-extrabold text-on-surface tracking-tight">
+            {activity.priceLabel}
+          </span>
           <Link
             href={bookingHref}
-            className="bg-coral text-on-error px-6 py-2.5 rounded-2xl text-label-md hover:opacity-90 active:scale-95 transition-all shadow-sm pointer-events-auto"
+            className="bg-coral text-white text-[11px] font-semibold px-3 py-1.5 rounded-full hover:opacity-90 active:scale-95 transition-all pointer-events-auto"
           >
             예약
           </Link>

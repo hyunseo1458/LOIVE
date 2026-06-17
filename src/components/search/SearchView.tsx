@@ -24,7 +24,7 @@ function KeywordChips({ onSelect }: { onSelect: (keyword: string) => void }) {
           key={keyword}
           type="button"
           onClick={() => onSelect(keyword)}
-          className="px-md py-xs rounded-full bg-surface-container-low text-body-md text-on-surface border border-outline-variant/30 hover:bg-ocean-blue/10 hover:text-ocean-blue hover:border-ocean-blue/30 transition-colors"
+          className="px-md py-xs rounded-full bg-surface-container-low text-body-md text-on-surface border border-outline-variant/30 hover:bg-coral/10 hover:text-coral hover:border-coral/30 transition-colors"
         >
           {keyword}
         </button>
@@ -42,7 +42,7 @@ export function SearchView({ initialQuery = "" }: { initialQuery?: string }) {
     <div className="min-h-screen pb-xl">
       <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
         <div className="flex items-center gap-2 px-container-margin h-16 max-w-3xl mx-auto">
-          <Link href="/" aria-label="뒤로 가기" className="text-ocean-blue flex items-center justify-center w-10 h-10 -ml-2 shrink-0">
+          <Link href="/" aria-label="뒤로 가기" className="text-on-surface flex items-center justify-center w-10 h-10 -ml-2 shrink-0">
             <ArrowLeftIcon className="size-6" />
           </Link>
           <div className="relative flex-1">
@@ -53,7 +53,7 @@ export function SearchView({ initialQuery = "" }: { initialQuery?: string }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="지역, 액티비티 이름으로 검색"
-              className="w-full h-11 pl-10 pr-9 rounded-full bg-surface-container-low text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-ocean-blue/30"
+              className="w-full h-11 pl-10 pr-9 rounded-full bg-surface-container-low text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-coral/30"
             />
             {query && (
               <button
@@ -90,9 +90,11 @@ export function SearchView({ initialQuery = "" }: { initialQuery?: string }) {
         {hasQuery && results.length > 0 && (
           <>
             <p className="text-label-md text-outline">검색 결과 {results.length}건</p>
-            {results.map((activity) => (
-              <ActivityListCard key={activity.id} activity={activity} />
-            ))}
+            <div className="grid grid-cols-2 gap-3">
+              {results.map((activity) => (
+                <ActivityListCard key={activity.id} activity={activity} />
+              ))}
+            </div>
           </>
         )}
       </main>
