@@ -51,9 +51,9 @@ export function DateSelectionCalendar({
 
             if (d.status === "soldout") {
               return (
-                <div key={d.day} className="py-2 text-outline line-through">
-                  <div className="font-medium">{d.day}</div>
-                  <div className="text-[8px]">마감</div>
+                <div key={d.day} className="py-2 text-outline opacity-50">
+                  <div className="font-medium line-through">{d.day}</div>
+                  <div className="text-[10px]">마감</div>
                 </div>
               );
             }

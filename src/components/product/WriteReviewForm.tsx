@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { CalendarIcon } from "@heroicons/react/24/outline";
+import { CalendarIcon, ExclamationCircleIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 import { StarRatingSelector } from "./StarRatingSelector";
 import { PhotoUploader } from "./PhotoUploader";
 
@@ -44,7 +44,7 @@ export function WriteReviewForm({
 
   const handleSubmit = () => {
     if (rating === 0) {
-      setError("평점을 선택해 주세요!");
+      setError("평점을 선택해 주세요.");
       return;
     }
     if (text.trim().length < MIN_CHARS) {
@@ -92,19 +92,30 @@ export function WriteReviewForm({
             </div>
           </div>
         </section>
-
-        {error && <p className="text-body-md text-error -mt-md">{error}</p>}
       </main>
 
       <div className="fixed bottom-0 w-full bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 py-4 px-container-margin z-50">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto flex flex-col gap-2">
+          {error && (
+            <p className="text-body-md text-error flex items-center gap-1.5">
+              <ExclamationCircleIcon className="size-5 shrink-0" />
+              {error}
+            </p>
+          )}
           <button
             type="button"
             disabled={submitting}
             onClick={handleSubmit}
             className="w-full h-14 bg-coral text-on-primary text-headline-md rounded-xl shadow-[0px_4px_12px_rgba(255,127,80,0.3)] transition-all flex items-center justify-center gap-2 disabled:opacity-70"
           >
-            {submitting ? "등록 중..." : "리뷰 등록하기"}
+            {submitting ? (
+              <>
+                <ArrowPathIcon className="size-5 animate-spin" />
+                등록 중...
+              </>
+            ) : (
+              "리뷰 등록하기"
+            )}
           </button>
         </div>
       </div>

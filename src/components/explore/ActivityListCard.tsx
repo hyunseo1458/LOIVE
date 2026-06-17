@@ -17,10 +17,11 @@ export function ActivityListCard({ activity }: { activity: Activity }) {
         <Image fill className="object-cover" alt={activity.imageAlt} src={activity.imageUrl} sizes="100vw" />
         <WishlistButton
           activityId={activity.id}
-          className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-surface/30 backdrop-blur-md flex items-center justify-center text-on-primary hover:text-coral transition-colors pointer-events-auto"
+          className="absolute top-3 right-3 z-20 w-11 h-11 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-outline hover:text-coral transition-colors shadow-sm pointer-events-auto"
+          iconClassName="size-5"
         />
-        <div className="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/40 backdrop-blur-md text-on-primary text-label-md">
-          <StarIcon className="size-3.5" />
+        <div className="absolute bottom-3 left-3 z-20 flex items-center gap-1 px-2 py-1 rounded-full bg-surface/80 backdrop-blur-md text-on-surface text-label-md">
+          <StarIcon className="size-3.5 text-sun-yellow" />
           {activity.rating}
         </div>
       </div>

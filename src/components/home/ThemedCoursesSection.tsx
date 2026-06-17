@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { COURSES } from "@/data/mock-home";
 import { CourseCard } from "./CourseCard";
 
@@ -9,7 +10,9 @@ export function ThemedCoursesSection() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
         {COURSES.map((course) => (
-          <CourseCard key={course.id} course={course} />
+          <Link key={course.id} href="/explore" className="block hover:opacity-95 transition-opacity">
+            <CourseCard course={course} />
+          </Link>
         ))}
       </div>
     </section>

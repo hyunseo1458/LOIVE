@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   BanknotesIcon,
   MapPinIcon,
@@ -12,6 +11,7 @@ import { ProfileHeader } from "@/components/profile/ProfileHeader";
 import { ProfileCard } from "@/components/profile/ProfileCard";
 import { QuickStatsRow } from "@/components/profile/QuickStatsRow";
 import { MenuGroup } from "@/components/profile/MenuGroup";
+import { LogoutButton } from "@/components/profile/LogoutButton";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
 
 export default function ProfilePage() {
@@ -43,10 +43,7 @@ export default function ProfilePage() {
             items={[{ icon: ShieldCheckIcon, label: "약관 및 개인정보처리방침" }]}
           />
 
-          {/* TODO: Supabase Auth 연동 후 실제 세션 종료 로직 추가 */}
-          <Link href="/login" className="w-full p-6 text-center text-outline hover:text-error-red transition-colors block">
-            로그아웃
-          </Link>
+          <LogoutButton />
         </div>
       </main>
       <BottomNavBar />

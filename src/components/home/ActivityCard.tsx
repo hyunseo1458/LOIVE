@@ -6,12 +6,13 @@ import type { Activity } from "@/types/activity";
 import { WishlistButton } from "@/components/shared/WishlistButton";
 
 export function ActivityCard({ activity }: { activity: Activity }) {
-  const href = `/activities/${activity.id}`;
+  const detailHref = `/activities/${activity.id}`;
+  const bookingHref = `/booking/${activity.id}`;
 
   return (
     <div className="relative w-64 md:w-72 shrink-0 snap-start bg-surface rounded-[20px] shadow-[0px_4px_12px_rgba(0,122,255,0.08)] overflow-hidden flex flex-col border border-outline-variant/10">
-      {/* 카드 전체를 클릭 영역으로 사용 (찜/예약 버튼은 pointer-events-auto로 별도 처리) */}
-      <Link href={href} aria-label={activity.name} className="absolute inset-0 z-0" />
+      {/* 카드 전체 클릭 → 상세 페이지 */}
+      <Link href={detailHref} aria-label={activity.name} className="absolute inset-0 z-0" />
 
       <div className="h-44 relative bg-surface-container-high pointer-events-none">
         <Image
@@ -23,8 +24,8 @@ export function ActivityCard({ activity }: { activity: Activity }) {
         />
         <WishlistButton
           activityId={activity.id}
-          className="absolute top-sm right-sm w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-outline hover:text-coral transition-colors shadow-sm pointer-events-auto"
-          iconClassName="size-4.5"
+          className="absolute top-sm right-sm w-11 h-11 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-outline hover:text-coral transition-colors shadow-sm pointer-events-auto"
+          iconClassName="size-5"
         />
       </div>
       <div className="p-md flex flex-col flex-grow bg-surface pointer-events-none">
@@ -43,8 +44,8 @@ export function ActivityCard({ activity }: { activity: Activity }) {
             {activity.priceLabel}
           </span>
           <Link
-            href={href}
-            className="bg-ocean-blue/10 text-ocean-blue text-label-md px-3 py-1.5 rounded-full hover:bg-ocean-blue hover:text-on-primary transition-colors pointer-events-auto"
+            href={bookingHref}
+            className="bg-coral text-on-error text-label-md px-3 py-1.5 rounded-full hover:opacity-90 active:scale-95 transition-all pointer-events-auto"
           >
             예약
           </Link>

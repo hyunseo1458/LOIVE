@@ -15,7 +15,7 @@ export default async function BookingCompletePage({
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const { id } = await params;
+  await params; // TODO: Supabase 연동 후 params.id로 실제 예약 조회
   const sp = await searchParams;
 
   const product = BOOKING_PRODUCT;
@@ -26,7 +26,7 @@ export default async function BookingCompletePage({
 
   return (
     <div className="min-h-screen pb-xl">
-      <CompletionHeader backHref={`/booking/${id}`} />
+      <CompletionHeader backHref="/bookings" />
 
       <main className="pt-[100px] px-container-margin max-w-lg mx-auto flex flex-col gap-lg">
         <section className="flex flex-col items-center text-center gap-sm mt-md">

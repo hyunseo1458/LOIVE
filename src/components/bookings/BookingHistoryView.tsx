@@ -17,6 +17,13 @@ export function BookingHistoryView({ items }: { items: BookingHistoryItem[] }) {
   const [activeTab, setActiveTab] = useState<TabKey>("upcoming");
   const filtered = items.filter((item) => item.status === activeTab);
 
+  const handleCancel = () => {
+    if (window.confirm("예약을 취소하시겠습니까?\n취소 후에는 복구가 어렵습니다.")) {
+      // TODO: Supabase 연동 후 실제 취소 API 호출로 교체
+      alert("취소 신청이 접수되었습니다. 영업일 기준 1-3일 내 처리됩니다.");
+    }
+  };
+
   return (
     <section className="mb-lg">
       <h2 className="text-headline-lg-mobile text-on-surface mb-md">예약 내역</h2>
@@ -51,6 +58,7 @@ export function BookingHistoryView({ items }: { items: BookingHistoryItem[] }) {
                 item.status === "upcoming" ? (
                   <button
                     type="button"
+                    onClick={handleCancel}
                     className="w-full py-2.5 px-md rounded-xl border border-coral text-coral text-label-md hover:bg-coral/5 transition-all active:scale-95"
                   >
                     예약 취소
