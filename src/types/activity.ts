@@ -5,6 +5,7 @@ export type Banner = {
   tag: string;
   title: string;
   description: string;
+  href: string;
 };
 
 export type Activity = {

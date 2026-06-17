@@ -26,11 +26,32 @@ export const BANNERS: Banner[] = [
   {
     id: "banner-1",
     imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB67OgAbwTL7KKC0H1Lol6AX3Jo67lwcYsEwCLCdU0gj246eUUnC_JM0bVhV1A591fSw8kQf8rc42c6m-mHFKNqb12OInnHHlvn9H5UjWZ8rH862m_JEcB90NjsYxVetpfJGTtZkHtShc3czR9B0uLWb_LpmG_ZRCbfnKtsOmPZXF579JRzLmW4YPJZvuJjvZ6I_dO9RcvhkhhUuzUUzQ17th6DDAIIxghQ_GzcuhmrFYpOi3MUjNWrooLdRf4ct8QFRbqi8MyYIQso",
-    imageAlt: "제주 해안 절벽과 투명한 에메랄드빛 바다",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAnLl5qtZieNSWnZNJWVAYcH4Ktkf7JmJcL0Xp4XSp82aYw8OYYs6kOXxhFaYjpSbI82eYD350q1MRi_xGVmerW-WPxkjBD5O52JiZspkNOb4KN2rwiw7fC0VmTMmhopmIqKBrAwBPaSrnNj5hOobrSCw3XuWjigv0bAoLsaqOsOcfU7OodxNqHPy0iBImG8ySZqjCmdyhA3J2tCtKsUTNVNlYOENNqNiQDmpbrERka8SPicL9HP20ltPcsDmcWEE_O8ajtgbsD06ee",
+    imageAlt: "투명 카약 위에서 바라본 맑은 바다",
+    tag: "인기",
+    title: "투명 카약 체험",
+    description: "애월 해안의 투명한 바다 위를 카약으로 누벼보세요. 1인 ₩45,000~",
+    href: "/activities/activity-1",
+  },
+  {
+    id: "banner-2",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDU1gn1e7aVL1aaitRyIClIUHokRF4rj6Vfq8WutKd6Zi-qhGYo0MT_ufkFRgPDyaPoSKWNrPyFUNFcHd_YRE65BdNtyiuy-fJHXDzwl6t1pxKhJETAf6qZnzC-vMV_vMT9tLdjZevlRFBB9h4xfmiqh4I31xo03_ZUyX2kzAnYvmYIDsOqpk0Ll65Vi2PAC2hUeQSPNpOHlwDZoCkk9PP9nf0sa9NK09TOL_3YjO1Brc4hYGceldhIURxjP9LR8qBAE10Unlo_3uDS",
+    imageAlt: "백사장에서 파도를 바라보는 서퍼",
     tag: "특가",
-    title: "숨겨진 시크릿 베이 탐험",
-    description: "제주의 투명한 바다에서 즐기는 프리미엄 스노클링. 이번 주 최대 20% 할인.",
+    title: "프리미엄 서핑 강습",
+    description: "중문 색달 해변에서 전문 강사와 함께하는 2시간 서핑. 1인 ₩60,000~",
+    href: "/activities/activity-2",
+  },
+  {
+    id: "banner-3",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAlZLMA1X5ZiBabutTEeuZAK8roJWvOINmjBLrIIEEBBlRa7zqv7DqMZWvAoEQkG8uNWDACPXIpTU-OjPp0JjmKEnmJ8mCk_BiYluo22zmBjc6ubZV5CuuutDPHjimE9fyjOFAHkG4CHe4zieiVAKCAC8oekfMOg-Soqu4vZapK2s5ScK5EAwWqrA2ixSBmPlFAzKKzF2lnILOb7BdrmZKbKQjKTgyHYNSkMZ34HGG6ss_X7-D1WFsOulVPqoefeE5l6ARoLq3Lx67l",
+    imageAlt: "산호초 사이를 헤엄치는 스쿠버 다이버",
+    tag: "추천",
+    title: "해녀 체험 다이빙",
+    description: "우도에서 즐기는 정통 해녀 체험. 장비 포함 1인 ₩80,000~",
+    href: "/activities/activity-3",
   },
 ];
 
