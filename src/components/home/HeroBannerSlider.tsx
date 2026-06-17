@@ -114,7 +114,7 @@ export function HeroBannerSlider() {
             }}
             aria-label={`${index + 1}번째 배너로 이동`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              index === active ? "w-6 bg-ocean-blue" : "w-1.5 bg-surface-variant"
+              index === active ? "w-6 bg-coral" : "w-1.5 bg-outline-variant"
             }`}
           />
         ))}
