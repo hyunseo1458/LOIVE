@@ -69,8 +69,14 @@ UX_PRINCIPLES.md 기준 전체 점검 후 아래 항목 수정됨:
 - **중요**: `npm run dev`를 여러 번 중복 실행하면 Turbopack 캐시(`.next/dev/cache`)가 손상되어 500 에러가 난다 (실제로 한 번 겪음). 새로 띄우기 전엔 기존 node 프로세스를 반드시 종료할 것 — PowerShell: `Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force`. 캐시가 깨졌다면 `.next` 폴더 삭제 후 재시작
 - 사용자가 "확인 없이 끝까지 진행" 요청함 — 화면 포팅/수정 작업은 매번 yes/no 묻지 않고 이어서 진행 중
 
+## GitHub
+- 레포: https://github.com/hyunseo1458/LOIVE
+- remote: `origin` → `https://github.com/hyunseo1458/LOIVE.git`
+- 브랜치: `master`
+- push 명령: `git push origin master`
+
 ## 다음 액션
-1. dev 서버 띄워두고 화면 보면서 추가 UI/UX 수정 (사용자가 실시간으로 요청)
+1. dev 서버 띄워두고 화면 보면서 추가 UI/UX 수정
 2. Supabase 프로젝트 생성 후 연동
 3. 배포
 
